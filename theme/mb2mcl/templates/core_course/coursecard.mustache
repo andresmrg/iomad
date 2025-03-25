@@ -1,0 +1,89 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template core_course/coursecard
+
+    This template renders the a card for the course cards.
+
+    Example context (json):
+    {
+        "courses": [
+            {
+                "name": "Assignment due 1",
+                "viewurl": "https://moodlesite/course/view.php?id=2",
+                "courseimage": "https://moodlesite/pluginfile/123/course/overviewfiles/123.jpg",
+                "fullname": "course 3",
+                "hasprogress": true,
+                "progress": 10,
+                "visible": true
+            }
+        ]
+    }
+}}
+<div class="myc-item card course-card dashboard-card position-relative" role="listitem"
+    data-region="course-content"
+    data-course-id="{{{id}}}">
+    {{$menu}}{{/menu}}
+    <a href="{{viewurl}}" tabindex="-1">
+        <div class="card-img dashboard-card-img card-img-top position-relative" style='background-image: url("{{{courseimage}}}");'>            
+            <span class="sr-only">{{fullname}}</span>
+            {{> core_course/favouriteicon }}
+            {{^visible}}
+                <span class="badge badge-info">{{#str}} hiddenfromstudents {{/str}}</span>                    
+            {{/visible}}
+        </div>
+    </a>
+    <div class="card-body pt-3 pb-3 pr-0 pl-0 course-info-container" id="course-info-container-{{id}}-{{uniqid}}">
+        <div class="d-flex align-items-start">
+            <div class="w-100">
+                {{#showshortname}}
+                    <div class="text-muted muted d-flex mb-1 flex-wrap">
+                        <span class="sr-only">
+                            {{#str}}aria:courseshortname, core_course{{/str}}
+                        </span>
+                        <div>
+                            {{{shortname}}}
+                        </div>
+                    </div>
+                {{/showshortname}}
+                <a href="{{viewurl}}" class="aalink coursename mb-1">
+                    {{> core_course/favouriteicon }}
+                    <span class="sr-only">
+                        {{#str}}aria:coursename, core_course{{/str}}
+                    </span>
+                    {{$coursename}}{{/coursename}}
+                </a>
+                <div class="myc-catname d-flex align-items-center tsizesmall lhmedium mt-1">
+                    <i class="ri-folder-3-line mr-1 lhsmall"></i> {{$coursecategory}}{{/coursecategory}}
+                </div>            
+            </div>
+        </div>
+    </div>
+    <div class="d-flex align-items-start">
+        <div class="card-footer dashboard-card-footer bg-white border-0 w-100 p-0">
+            <a href="{{viewurl}}" class="myc-readmore btn btn-primary w-100">{{#str}}entercourse, theme_mb2mcl{{/str}}</a>
+            {{$progress}}{{/progress}}
+            {{^hasprogress}}
+                <div class="myc-progress-bar no-completion mt-2">
+                    <span class="sr-only">{{#str}}aria:courseprogress, block_myoverview{{/str}}</span>
+                    <span class="progress-text tsizesmall d-inline-block">{{#str}}nocriteriaset, theme_mb2mcl{{/str}}</span>
+                    <div class="progress-area"><div class="progress-val" style="width:0%;"></div></div>  
+                </div>
+            {{/hasprogress}}   
+        </div>  
+    </div>
+</div>

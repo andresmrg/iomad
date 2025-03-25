@@ -1,0 +1,161 @@
+
+@mixin mb2_collabsible_item_icon()
+{
+    $icon_size: 22px;
+
+    &:before {
+        position: absolute;
+        display: block !important;
+        width: $icon_size;
+        height: $icon_size;
+        left: .45rem;
+        top: 50%;
+        margin-top: ($icon_size/2) * -1;
+        content: '\f106';
+        text-align: center;
+        line-height: $icon_size - 1 !important;
+        background-color: $accent1;
+        color: #fff;
+        @include mb2_font_fa();
+        @include mb2_border_radius(50%);
+        @include mb2_transition1(all, .15s);
+    }
+
+}
+
+
+@mixin mb2_collabsible_item_icon_collapsed()
+{
+    $icon_size: 22px;
+
+    &:before {
+        content: '\f107';
+        background-color: rgba(0,0,0,.065);
+        color: inherit;
+        line-height: $icon_size !important;
+    }
+
+}
+
+
+@mixin mb2_collabsible_item()
+{
+    margin-left: 0;
+    border: 0;
+    margin-bottom: .8rem;
+
+    legend,
+    .categoryname,
+    [data-toggle="collapse"] {
+
+        margin: 0 !important;
+        font-size: inherit;
+        position: relative;
+        font-weight: $fwheadings;
+        font-size: $fsgeneral;
+        padding: .45rem !important;
+        background-color: $color_gray3;
+        border: solid 1px rgba(0,0,0,0);
+        line-height: inherit;
+        color: $accent1;
+        @include mb2_transition1(all, .15s);
+        @include mb2_border_radius(.28rem);
+
+        > a {
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: $color_gray3 !important;
+        }
+    }
+
+
+    /* Style for Moodle settings collapsible item */
+
+    legend {
+
+        &.sr-only {
+            padding: 0 !important;
+            border: 0;
+            background-color: transparent !important;
+        }
+
+        > a {
+
+            &.fheader {
+                padding-left: 2rem !important;
+                margin-left: 0;
+                position: relative;
+                background-image: none !important;
+                @include mb2_collabsible_item_icon();
+
+                &:before {
+                    left: 0;
+                }
+            }
+        }
+    }
+
+    &.collapsed {
+        legend {
+            > a {
+                &.fheader {
+                    @include mb2_collabsible_item_icon_collapsed();
+                }
+            }
+
+            background-color: lighten($color_gray3,2.8%);
+            border-color: rgba(0,0,0,0);
+        }
+    }
+
+
+    /* Style for accordion item */
+
+    [data-toggle="collapse"] {
+        display: block;
+        width: 100%;
+        text-align: inherit;
+        padding-left: 2.45rem !important;
+        padding-top: .8rem !important;
+        padding-bottom: .8rem !important;
+
+        @include mb2_collabsible_item_icon();
+
+        &[aria-expanded="false"] {
+            @include mb2_collabsible_item_icon_collapsed();
+            background-color: lighten($color_gray3,2.8%);
+            border-color: rgba(0,0,0,0);
+        }
+    }
+
+
+    /* Style for course categories tree */
+
+    .categoryname {
+        padding-left: 2.45rem !important;
+        background-image: none !important;
+        @include mb2_collabsible_item_icon();
+
+        .categoryname {
+            margin-top: .8rem !important;
+        }
+
+    }
+
+    &.collapsed {
+        > div > .categoryname {
+            @include mb2_collabsible_item_icon_collapsed();
+            background-color: lighten($color_gray3,2.8%);
+            border-color: rgba(0,0,0,0);
+        }
+    }
+
+    /* Style for collapsible content container */
+
+    .fcontainer {
+        padding: 1.25rem 1rem;
+    }
+
+}

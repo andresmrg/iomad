@@ -1,0 +1,173 @@
+
+
+/* General tabs style */
+
+#page-course-admin #page-content,
+#page-admin-search #page-content,
+.theme-tabs,
+.moodle-dialogue-base {
+
+	&.moodle-tabs {
+		margin-bottom: 1.3rem;
+	}
+
+	.nav-tabs {
+		border-color: $accent1;
+		border-bottom-width: 3px;
+		padding-bottom: 1px;
+		list-style: none !important;
+
+
+		.nav-item {
+			margin-bottom: 0;
+		}
+
+
+		.nav-link {
+			display: block;
+			padding: .33rem .8rem;
+			margin-right: .2rem;
+			background-color: $color_gray4;
+			@include mb2_border_radius(.15rem .15rem 0 0);
+			color: $accent1;
+			border: 0;
+
+			&.active {
+				color: #fff;
+				background-color: $accent1;
+			}
+		}
+	}
+
+	.tab-content {
+		padding-top: 1.3rem;
+	}
+
+}
+
+
+
+@media only screen and (min-width: $wmediumdevice){
+
+	.theme-tabs {
+
+		&.left,
+		&.right {
+
+			position: relative;
+
+			.nav-tabs {
+				border-bottom: 0;
+				position: absolute;
+				width: 180px;
+				top: 0;
+				display: block;
+			}
+
+			.nav-item {
+				display: block;
+			}
+
+			.nav-link {
+				margin-right: 0;
+				margin-bottom: .3rem;
+			}
+
+			.tab-content {
+				padding-top: 0;
+				position: relative;
+
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					width: 1px;
+					height: 100%;
+					top: 0;
+				}
+			}
+
+
+		}
+
+
+		&.left {
+
+			padding-left: 180px;
+
+			.nav-tabs {
+				left: 0;
+			}
+
+			.nav-link {
+				@include mb2_border_radius(.2rem 0 0 .2rem);
+			}
+
+			.tab-content {
+				border-left: solid 2px $accent1;
+				padding-left: 1.3rem;
+
+				&:before {
+					left: 0px;
+				}
+			}
+
+
+		}
+
+
+		&.right {
+
+			padding-right: 180px;
+
+			.nav-tabs {
+				right: 0;
+			}
+
+			.nav-link {
+				@include mb2_border_radius(0 .2rem .2rem 0);
+			}
+
+			.tab-content {
+				border-right: solid 2px $accent1;
+				padding-right: 1.3rem;
+
+				&:before {
+					right: 0;
+				}
+			}
+		}
+
+
+	}
+
+
+}
+
+
+
+
+@media only screen and (max-width: $wxsmalldevice){
+
+	#page-course-admin #page-content,
+	#page-admin-search #page-content,
+	.theme-tabs,
+	.moodle-dialogue-base {
+
+		.nav-tabs {
+			text-align: center;
+			display: block;
+
+			.nav-item {
+				display: inline-block;
+			}
+
+			.nav-link {
+				margin: .3rem;
+				@include mb2_border_radius(.2rem);
+			}
+		}
+	}
+
+
+}

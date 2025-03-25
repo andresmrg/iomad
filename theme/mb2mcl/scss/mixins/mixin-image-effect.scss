@@ -1,0 +1,77 @@
+
+@mixin mb2_image_effect ()
+{
+    display: block;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 0;
+        position: absolute;
+        left: 0;
+        background-color: rgba(0,0,0,.2);
+        z-index: 1;
+        @include mb2_transition1(all, .3s);
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+}
+
+
+
+
+@mixin mb2_image_effect_hover ()
+{
+    &:before,
+    &:after {
+        height: 50%;
+    }
+}
+
+
+
+
+
+@mixin mb2_image_zoom()
+{
+
+    .theme-boximg-image {
+        display: block;
+        overflow: hidden;
+
+        img {
+                @include mb2_transition1(all, .25s);
+        }
+    }
+
+
+    &:hover {
+
+        .theme-boximg-image {
+
+            img {
+                @include mb2_trabsform_scale(1.1);
+            }
+        }
+    }
+
+}
+
+
+
+
+@mixin mb2_trabsform_scale($size) {
+	-webkit-transform: scale($size);
+  	-moz-transform: scale($size);
+	-ms-transform: scale($size);
+  	transform: scale($size);
+}

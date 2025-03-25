@@ -1,0 +1,39 @@
+/* ==================== SUMMARISE */
+
+.ai-course-summarise-controls.pt-3 {
+    padding-top: 0!important;
+
+	button {
+		&.btn.btn-outline-secondary {
+			color: #fff;
+			@include button-size(.2rem, .55rem, $fssmall, $fssmall_lh, .15rem);
+
+			.ai-course-summarise-sparkles-icon {
+				display: none !important;
+
+				&.white {
+					display: inline-block !important;
+				}
+			}
+		}
+	}
+}
+
+.ai-drawer-button {
+    background-color: transparent !important;
+    border: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;;
+    color: var(--mb2-pb-textcolor) !important;
+
+	i.icon {
+		margin: 0;
+		font-size: 1.4rem;
+	}
+}
+
+.tiny_aiplacement_modal {
+	.btn {
+		line-height: 1.2;
+	}
+}

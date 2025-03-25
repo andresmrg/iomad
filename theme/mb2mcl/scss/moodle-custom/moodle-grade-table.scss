@@ -1,0 +1,34 @@
+
+#main-content .gradeparent  {
+
+	.theme-table-wrap {
+		overflow: visible !important;
+		border: 0 !important;
+		margin-top: 0;
+		table {
+			background-color: #fff;
+
+			td {
+				font-weight: inherit;
+			}
+		}
+	}
+
+	.floating {
+		z-index: 2;
+
+		a {
+			color: inherit;
+		}
+	}
+
+	.sticky-header & {
+
+
+		.theme-table-wrap,
+		.floating {
+			z-index: 4;
+		}
+	}
+
+}

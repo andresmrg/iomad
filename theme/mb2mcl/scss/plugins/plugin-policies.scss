@@ -1,0 +1,100 @@
+
+.eupopup-container {
+	color: $textcolor;
+	font-size: $fssmall;
+	line-height: $fssmall_lh;
+	background-color: rgba($color_gray2,.97);
+
+	&:after {
+		display: block;
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 8px;
+		top: 0;
+		left: 0;
+		background-color: orange;
+		background-image: url([[pix:theme|svg/strip1_black20]]);
+	}
+
+	a {
+		color: $headingscolor;
+
+		&:hover,
+		&:focus {
+			color: $linkcolor;
+		}
+	}
+
+	ul {
+		li {
+			margin: 0 .2rem;
+			padding: 0 .2rem;
+			position: relative;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.eupopup-button {
+		@include mb2_btn($btncolor);
+		@include mb2_btn_sm();
+		@include button-variant($color_success, $color_success);
+
+		&:empty {
+			display: none;
+		}
+	}
+
+	.eupopup-closebutton {
+		top: .4rem;
+		right: 0;
+		font-size: 1.4rem;
+		line-height: 0;
+		display: block;
+		text-indent: -999999999px;
+
+		&:after {
+			display: block;
+			text-indent: 0;
+			content: '\00d7';
+			visibility: visible;
+			line-height: 1.9rem;
+			font-weight: bold;
+			width: 1.9rem;
+			height: 1.9rem;
+			text-align: center;
+			@include mb2_border_radius(50%);
+			@include mb2_transition1(all, .25s);
+			color: rgba(0,0,0,.5);
+		}
+
+		&:hover,
+		&:focus {
+			&:after {
+				color: #000;
+				border-color: #000;
+			}
+		}
+	}
+}
+
+
+@media only screen and (max-width: $wmediumdevice){
+	.eupopup-container {
+
+		.eupopup-closebutton {
+			position: relative;
+			top: 0;
+			right: 0;
+			margin: 0 auto;
+
+			&:after {
+				margin: 0 auto;
+			}
+		}
+	}
+
+}

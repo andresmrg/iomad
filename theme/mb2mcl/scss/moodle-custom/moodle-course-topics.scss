@@ -1,0 +1,21 @@
+
+.section {
+
+	.course-content {
+		ul& {
+			margin: 0;
+		}
+	}
+
+	li&.main {
+		// background-color: lighten($color_gray2,3.5%);
+		// @include mb2_border_radius(.2rem);
+		// @include mb2_box_shadow(0 3px 5px, rgba(0,0,0,.095));
+		// border: solid 1px lighten($color_gray3,3%);
+	}
+
+}
+
+#changenumsections {
+	text-align: inherit;
+}

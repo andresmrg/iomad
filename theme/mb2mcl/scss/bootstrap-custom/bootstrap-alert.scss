@@ -1,0 +1,7 @@
+
+.alert {
+	.close {
+		@include mb2_nobtn();
+		color: inherit !important;
+	}
+}

@@ -1,0 +1,29 @@
+
+/* Vertical align */
+
+.v-align-1 {
+    display: table;
+    height: 100%;
+}
+
+.v-align-2 {
+    display:table-cell;
+    vertical-align: middle;
+}
+
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px!important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    border: 0 !important;
+}
+
+abbr[title],
+abbr[data-original-title] {
+    text-decoration: none;
+}

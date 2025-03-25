@@ -1,0 +1,322 @@
+
+[data-region="grading-navigation"] {
+
+	[data-region="user-info"] {
+
+		> h4 {
+			display: inline-block;
+			margin: 0;
+			margin-top: .7rem;
+
+			a {
+				color: inherit !important;
+			}
+		}
+
+		img.img-rounded {
+			@include mb2_border_radius(50%);
+			width: 3.5rem;
+			margin-top: -.25rem;
+		}
+
+		small {
+			font-size: $fssmall;
+		}
+
+	}
+
+	a {
+		color: inherit;
+
+		i {
+			font-size: 1em;
+		}
+
+		&:hover,
+		&:focus {
+			color: $linkcolor;
+		}
+	}
+}
+
+
+
+
+.path-mod-assign {
+
+	[data-region="grading-navigation-panel"],
+	[data-region="grade-actions-panel"] {
+		border: 0;
+		background-color: $color_gray2;
+	}
+
+	[data-region="grading-navigation-panel"] {
+		border-bottom: solid 1px rgba(0,0,0,.1);
+	}
+
+	[data-region="grade-actions-panel"] {
+		border-top: solid 1px rgba(0,0,0,.1);
+	}
+
+
+
+
+	[data-region="grade-panel"] {
+
+		.popout {
+
+			> .col-md-3 {
+				border-top: 0 !important;
+			    padding: 0!important;
+			    margin: 0!important;
+			    background-color: transparent!important;
+
+				.col-form-label {
+					font-size: $fsheading4 !important;
+					color: $headingscolor !important;
+					font-weight: $fwheadings !important;
+				}
+			}
+
+		}
+
+		background-color: #fff;
+		padding: 3rem 1rem;
+		font-size: $fssmall;
+	}
+
+
+
+	[data-region="user-selector"] {
+
+		[data-action="previous-user"],
+		[data-action="next-user"] {
+			font-size: 1rem;
+			margin: 0;
+			color: rgba(0,0,0,.35);
+		}
+
+		.alignment {
+			.form-autocomplete-downarrow {
+				top: .2rem;
+    			font-size: .85rem;
+				color: inherit;
+			}
+		}
+	}
+
+	[data-region="assignment-info"] {
+		font-size: $fssmall;
+	}
+
+	[data-region="user-filters"] {
+		font-size: $fssmall;
+		color: inherit !important;
+	}
+}
+
+
+
+.path-mod-assign {
+
+	[data-region="grade-panel"] {
+
+		td.submissionstatus,
+		div.submissionstatus,
+		td.submissionnotgraded,
+		div.submissionnotgraded,
+		td.submissiongraded,
+		div.submissiongraded,
+		td.submissionnoteditable,
+		div.submissionnoteditable,
+		td.submissioneditable,
+		div.submissioneditable,
+		td.submissionstatussubmitted,
+		div.submissionstatussubmitted,
+		td.submissionlocked,
+		div.submissionlocked {
+			background-color: rgba($color_info, .3);
+		    color: darken($color_info, 15%);
+		    padding: .2rem 1rem;
+		    margin: .45rem 0;
+		    border-radius: .2rem;
+		    font-size: .85rem;
+		}
+
+
+
+		/* Success color */
+
+		td.submissionstatussubmitted,
+		div.submissionstatussubmitted,
+		td.submissiongraded,
+		div.submissiongraded,
+		td.submissioneditable,
+		div.submissioneditable {
+		   background-color: rgba($color_success, .3);
+		   color: darken($color_success, 15%);
+		}
+
+
+
+		/* Danger color */
+
+		td.submissionlocked,
+		div.submissionlocked,
+		td.submissionnoteditable,
+		div.submissionnoteditable,
+		td.submissionnotgraded,
+		div.submissionnotgraded {
+		    background-color: rgba($color_danger, .3);
+			color: darken($color_danger, 15%);
+		}
+
+	}
+
+}
+
+
+
+
+/* PDF viewer */
+
+.assignfeedback_editpdf_widget {
+
+	.pageheader {
+
+		height: 80px;
+
+		.toolbar,
+		.navigation-search,
+		.navigation-expcol,
+		.navigation {
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
+
+		.navigation {
+			.navigate-previous-button,
+			.navigate-next-button {
+				background-color: #fff !important;
+			}
+		}
+
+	}
+
+	.toolbar_group {
+	    float: none;
+	}
+
+
+	.drawingregion {
+	    top: 80px;
+		background-color: $color_gray2;
+		border-bottom: 0;
+	}
+	   
+}
+
+
+.path-mod-assign {
+	[data-region="grade-actions-panel"] {
+		[data-region="grade-actions"] {
+			.collapse-buttons {
+				img {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+/* Style for PodLL feedback plugin */
+
+.form-control-static {
+    max-width: 100%;
+}
+
+
+/* ================= GRADE REPORT STYLE IN MOODLE 4+ */
+
+.css_6wum {
+
+	.tertiary-navigation {
+
+		&.full-width-bottom-border {
+			max-width: 100%;
+		    margin-left: 0;
+		    margin-right: 0;
+		}
+
+		&.container-fluid,
+		&.container-fluid .row {
+			padding-left: 0;
+		    padding-right: 0;
+			margin-left: 0;
+    		margin-right: 0;
+		}
+
+		&.container-fluid {
+			.row {
+				align-items: center;
+			}
+		}
+
+		.navitem-divider {
+			display: none;
+		}
+
+		.dropdown-toggle {
+		    background-color: transparent !important;
+		    border: 0 !important;
+		    color: inherit !important;
+		    padding: 0;
+		    transition: none !important;
+		}
+
+		.navitem {
+		    margin-bottom: 1rem;
+		}
+
+		.tertiary-navigation-selector {
+			.dropdown-toggle {
+			    font-size: 1rem;
+			    font-weight: 500;
+			}
+		}
+	}
+
+	&.path-course-index {
+		.tertiary-navigation {
+			display: none;
+		}
+	}
+
+
+	&.path-grade-report-user .user-grade td.category a.toggle-category,
+	&.grade-report-user .user-grade td.category a.toggle-category {
+		background-color: transparent !important;
+		color: inherit !important;
+		border: 0 !important;
+		padding: 0 !important;
+		transition: none !important;
+	}
+
+	.user-heading  {
+
+		.btn {
+			background-color: transparent !important;
+		    color: inherit !important;
+		    border: 0 !important;
+		    padding: 0 !important;
+		    transition: none !important;
+		}
+
+	}
+
+	.activityiconcontainer {
+		width: 36px;
+		height: 36px;
+	}
+
+}

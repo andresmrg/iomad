@@ -1,0 +1,8 @@
+
+.popover {
+	@include mb2_theme_text();
+
+	p {
+		margin: 0;
+	}
+}

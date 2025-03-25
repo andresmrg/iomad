@@ -1,0 +1,11 @@
+
+.overlay-icon-container {
+	.dark &,
+	.dark1 & {
+		background-color: rgba(0,0,0,.2);
+
+		.loading-icon {
+			color: rgba(255,255,255,.45);
+		}
+	}
+}

@@ -1,0 +1,42 @@
+
+
+/* Remove bootstrap card style */
+
+.mb2-accordion {
+
+	.card-header {
+		background-color: transparent;
+		border: 0;
+		padding: 0;
+		margin-bottom: 0 !important;
+	}
+
+	.card {
+		margin-bottom: .5rem;
+		background-color: transparent;
+	}
+
+	.card-body {
+		border: 0;
+		padding: 1.3rem 0;
+		@include mb2_box_shadow(0 0 0, rgba(255,255,255,0));
+		background-color: transparent;
+	}
+
+	margin-bottom: 1.3rem;
+}
+
+
+
+.mb2-accordion {
+
+	.panel-title {
+		margin: 0;
+	}
+
+	.accorion-item {
+		margin-bottom: .8rem;
+	}
+
+	@include mb2_collabsible_item();
+}

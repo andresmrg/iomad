@@ -1,0 +1,49 @@
+
+.mb2azc-letters {
+	padding: 0;
+    margin: 0;
+    list-style: none;
+
+	ul {
+		padding: 0;
+	    margin: 0;
+	    list-style: none;
+	}
+}
+
+
+.mb2azc-header {
+
+	.layout-list & {
+		padding: 7px 15px;
+		background-color: lighten($color_gray3, 3%);
+		border-radius: 3px;
+		border-left: solid 2px $accent1;
+		@include mb2_transition1(background-color, .15s);
+
+		&:hover {
+			background-color: $color_gray3;
+		}
+
+
+		.mb2azc-ttop {
+			font-size: $fssmall;
+			color: $headingscolor;
+		}
+	}
+
+}
+
+
+.mb2azc-item {
+	.layout-list & {
+		> a {
+			color: $textcolor;
+
+			&:hover,
+			&:focus {
+				color: $linkcolor;
+			}
+		}
+	}
+}

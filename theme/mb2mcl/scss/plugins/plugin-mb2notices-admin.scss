@@ -1,0 +1,18 @@
+.mb2notices-admin-notice-title a {
+    display:inline-block;
+    white-space: nowrap;
+    max-width: 135px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle
+}
+
+.mb2notices-admin-legend-item {
+	display: inline-block;
+	font-size: $fsxsmall;
+	color: #fff;
+    padding: .3rem .4rem;
+    line-height: 1;
+    margin-right: .3rem;
+	@include mb2_border_radius(.1rem);
+}

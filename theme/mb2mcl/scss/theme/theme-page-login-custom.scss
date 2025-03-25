@@ -1,0 +1,243 @@
+
+/* -------------------- LOGIN FORM FILEDS */
+.custom-login,
+.default-login {
+	#login {
+
+		input {
+
+			background-color: transparent;
+			border-color: rgba(0,0,0,.1);
+			border-width: 2px;
+
+			&[type="text"],
+			&[type="password"] {
+				height: 42px;
+				padding-left: 35px;
+				width: 100%;
+
+				&:focus {
+					border-color: $color_success;
+				}
+			}
+		}
+
+
+		.form-group {
+			position: relative;
+
+			&:before {
+				@include mb2_font_fa();
+				content: '\f023';
+				position: absolute;
+				height: 30px;
+				width: 38px;
+				font-size: 20px;
+				text-align: center;
+				line-height: 30px;
+				top: 50%;
+				margin-top: -15px;
+				left: 0;
+				background-color: transparent;
+				color: rgba(0,0,0,.2);
+			}
+
+			.pass_show {
+				position: absolute;
+				height: 30px;
+				line-height: 30px;
+				top: 50%;
+				margin-top: -15px;
+				display: none;
+				width: auto;
+			    left: auto;
+			    right: .7rem;
+			    font-size: $fsxsmall;
+			    text-transform: uppercase;
+			    color: $textcolor_lighten;
+				cursor: pointer;
+				background-color: #fff;
+
+				&.filled {
+					display: inline-block;
+				}
+			}
+
+			&.login-form-submit,
+			&.login-form-forgotpassword {
+				&:before {
+					display: none;
+				}
+			}
+
+		}
+
+		.form-item {
+			margin-bottom: 1.35rem;
+		}
+
+		input[type="hidden"] + .form-group {
+			&:before {
+				content: '\f007';
+			}
+		}
+
+	}
+
+	.guest-login-form,
+	.cookies-notice {
+		margin-top: 2rem;
+	}
+
+	.text-separator {
+	    margin: 2rem 0;
+	}
+
+	.potentialidp {
+		margin-bottom: 1rem;
+	}
+
+
+}
+
+
+
+
+.custom-login {
+
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	//background-attachment: $loginbgattach;
+	background-color: $color_gray2;
+
+	.main-logo {
+
+		max-width: 100%;
+		padding: 0 30px;
+
+		img {
+			max-height: $logoh;
+		}
+
+		
+	}
+
+	#page {
+		width: 100%;
+		max-width: 550px;
+		padding: 2.4rem 0;
+		background-color: #fff;
+		height: 100vh;
+		overflow-y: auto;
+		margin: 0;
+		background-image: none;
+
+		&::-webkit-scrollbar {
+		  width: 18px;
+		}
+
+		&::-webkit-scrollbar-track {
+		  background-color: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+		  background-color: rgba(0,0,0,.1);
+		  border: 6px solid transparent;
+		  background-clip: content-box;
+		}
+
+		#page-a,
+		#page-b {
+		    background-color: transparent;
+		}
+	}
+
+	#main-content {
+	    padding: 0;
+	}
+
+	.show-menu {
+		display: none;
+	}
+
+	#page-outer {
+		background-color: $loginbgcolor;
+		//background-attachment: $loginbgattach;
+	}
+
+	.footer-text,
+	.social-list {
+	    float: none;
+	}
+
+	.social-list {
+	    margin-top: 1.25rem !important;
+	}
+
+	div[class^="col-"] {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	#page-content {
+		> div {
+
+			.row {
+				> div > div > div > h2 {
+					display: none;
+				}
+			}
+
+			> .my-sm-5 {
+			    display: none;
+			}
+		}
+
+	}
+
+	.card,
+	.card-body,
+	.card-header {
+	    background-color: transparent;
+	    border: 0;
+	}
+
+	.card {
+	    max-width: 380px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 40px;
+	}
+
+	h2 {
+	    font-size: $fsheading3;
+	}
+
+
+	/* ================ MOODLE 4 */
+
+	&.css_6wum {
+
+		.loginform {
+
+			max-width: 480px;
+			margin: 0 auto;
+		}
+	}
+
+	.loginleft,
+	.loginright,
+	#footer {
+		padding-top: 4rem;
+	}
+
+	#footer {
+		background-color: transparent;
+		color: $textcolor;
+		padding-bottom: 0;
+		border: 0;
+
+	}
+
+}

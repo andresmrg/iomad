@@ -1,0 +1,6 @@
+/**
+ *
+ * @package   theme_mb2mcl
+ * @copyright 2017 - 2024 Mariusz Boloz (lmsstyle.com)
+ * @license   Commercial https://themeforest.net/licenses
+ */ define(["jquery"],function(s){return{toggleAll:function(){s(document).on("click",".ts-toggleall",function(){var a=s(this).closest(".ts_container").find(".ts_jsontent"),t=s(this).closest(".ts_container").find(".ts_togglejs");s(this).hasClass("collapsed")?(s(this).removeClass("collapsed"),s(this).text(mb2mcljs.collapseall),s(this).attr("aria-expanded","true"),a.removeClass("d-none"),t.removeClass("collapsed")):(s(this).addClass("collapsed"),s(this).text(mb2mcljs.expandall),s(this).attr("aria-expanded","false"),a.addClass("d-none"),t.addClass("collapsed"))})},toggleCat:function(){s(document).on("click",".ts_togglejs",function(){var a=s(this).closest(".ts_cheader").siblings();s(this).hasClass("collapsed")?(s(this).removeClass("collapsed"),s(this).attr("aria-expanded","true"),a.removeClass("d-none")):(s(this).addClass("collapsed"),s(this).attr("aria-expanded","false"),a.addClass("d-none"))})}}});

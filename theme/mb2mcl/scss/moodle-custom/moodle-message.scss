@@ -1,0 +1,255 @@
+
+
+@mixin mb2_moodle_message()
+{
+
+	padding: .8rem;
+	border: solid 2px $color_border;
+	@include mb2_border_radius(.15rem);
+	margin-bottom: 1rem;
+	@include mb2_transition1(all, .15s);
+
+	&:hover {
+		@include mb2_box_shadow(0 0 0, transparent);
+		border-color: $color_warning;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&[aria-checked="true"] {
+		outline: none;
+		border-color: $color_danger;
+
+		[data-region="selected-icon"] {
+			color: $color_danger !important;
+		}
+	}
+
+	&[aria-checked="false"] {
+
+		[data-region="not-selected-icon"] {
+			color: $color_border !important;
+		}
+	}
+
+	h6 {
+		font-size: $fsgeneral;
+	}
+
+	.tail {
+		border-color: transparent !important;
+	}
+
+}
+
+
+
+
+@mixin mb2_moodle_message_search()
+{
+	[data-region="view-overview"] {
+		> div > .input-group {
+			.input-group-prepend {
+				width: 2.1rem;
+				background-color: $color_border;
+				@include mb2_border_radius(.15rem 0 0 .15rem);
+
+				.input-group-text {
+					background-color: transparent !important;
+					padding: 0;
+					border: 0;
+					position: relative;
+					left: .37rem;
+				}
+			}
+
+			[data-region="view-overview-search-input"] {
+				width: calc(100% - 2.15rem);
+				min-width: calc(100% - 2.15rem);
+
+				+ .input-group-append {
+					width: 2.15rem;
+				}
+			}
+
+
+		}
+
+		[data-route="view-contacts"] {
+			margin-right: 1.8rem;
+		}
+	}
+
+	[data-region="view-search"] {
+		[data-region='search-input'] {
+			width: calc(100% - 2.15rem);
+			min-width: calc(100% - 2.15rem);
+		}
+
+		.input-group-append {
+			width: 2.1rem;
+			button {
+				padding: 0;
+				width: 2.1rem;
+			}
+		}
+	}
+}
+
+
+.message-app {
+	&.main {
+		height: 100%;
+		min-height: 750px;
+	}
+
+	> .container-fluid {
+		padding: 0;
+	}
+
+	.panel-header-container {
+		.simplesearchform {
+			.btn-submit {
+				max-width: 2.15rem;
+			}
+		}
+	}
+}
+
+
+#page-message-index {
+	#page-content,
+	div[role="main"] {
+		height: 100%;
+	}
+
+	#page-header {
+		display: block;
+	}
+}
+
+
+
+
+.message-drawer,
+.message-app {
+
+
+
+	/* Section toggle */
+
+	.overview-section-toggle {
+		@include mb2_border_radius(0);
+		background-color: #fff !important;
+		//@include gradient-y-important(#fff, $color_gray3);
+		color: $headingscolor !important;
+		border: 0;
+		box-shadow: none !important;
+
+
+	}
+
+
+	/* Search form */
+
+	@include mb2_moodle_message_search();
+
+
+	[data-region="contact-request-sent-message-container"] {
+		font-size: $fssmall;
+		line-height: $fssmall_lh;
+		margin: 0 -.5rem;
+		background-color: lighten($color_gray2, 3%);
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	[data-region="day-container"] {
+
+		margin-top: 1.3rem !important;
+
+		h6 {
+			font-size: $fsgeneral;
+			margin-bottom: 0 !important;
+		}
+	}
+
+	[data-region="self-conversation-message-container"]	{
+		padding-bottom: 0 !important;
+		font-size: $fssmall;
+	}
+
+
+	.message {
+		@include mb2_moodle_message();
+	}
+
+
+	.favourite-icon-container {
+		color: $color_warning !important;
+	}
+
+
+	// [data-region="content-messages-footer-container"] {
+	//
+	// 	.d-flex {
+	// 		//display: block !important;
+	//
+	// 		textarea {
+	// 			margin-bottom: .6rem;
+	// 			width: 100% !important;
+	// 		}
+	//
+	//
+	// 	}
+	//
+	// }
+
+
+	[data-region="dialogue-text"],
+	[data-region="header-edit-mode"] {
+		font-size: $fssmall;
+		line-height: $fssmall_lh;
+	}
+
+	// [data-region="content-messages-footer-container"],
+	// [data-region="content-messages-footer-edit-mode-container"] {
+	//
+	// 	.btn.btn-link.btn-icon {
+	// 		width: 100% !important;
+	// 		color: #fff!important;
+	// 		margin-left: 0 !important;
+	// 		@include mb2_border_radius(.15rem);
+	// 		height: 1.9rem !important;
+	// 		font-size: 20px !important;
+	// 	}
+	//
+	// 	> .p-3 {
+	// 		padding: 0 !important;
+	// 	}
+	//
+	// }
+	//
+	// [data-region="content-messages-footer-container"] {
+	// 	.btn.btn-link.btn-icon {
+	// 		background-color: $color_success !important;
+	// 	}
+	// }
+	//
+	// [data-region="content-messages-footer-edit-mode-container"] {
+	// 	.btn.btn-link.btn-icon {
+	// 		background-color: $color_danger !important;
+	// 	}
+	// }
+
+
+
+	.emoji-picker .category-button {
+		@include mb2_border_radius(0);
+	}
+
+}

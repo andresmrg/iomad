@@ -1,0 +1,69 @@
+
+
+
+
+.theme-text {
+
+	&.text-sm {
+		font-size: $fssmall;
+	}
+
+	&.text-lg {
+		font-size: $fsbig;
+		line-height: $fsbig_lh;
+	}
+
+	&.text-xlg {
+		font-size: $fxsbig;
+		line-height: $fxsbig_lh;
+	}
+
+
+	&.text-lighten {
+		color: $textcolor_lighten;
+	}
+
+	&.text-darken {
+		color: $textcolor_darken;
+	}
+
+
+	&.text-center {
+		text-align: center;
+	}
+
+
+	&.text-right {
+		text-align: right;
+	}
+
+}
+
+
+
+.theme-color {
+
+	&.color-default {
+		color: $accent1;
+	}
+
+	&.color-success {
+		color: $color_success;
+	}
+
+	&.color-warning {
+		color: $color_warning;
+	}
+
+	&.color-danger {
+		color: $color_danger;
+	}
+
+	&.color-info {
+		color: $color_info;
+	}
+
+	&.color-inverse {
+		color: $accent2;
+	}
+}

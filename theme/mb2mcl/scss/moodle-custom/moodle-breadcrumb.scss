@@ -1,0 +1,76 @@
+
+.breadcrumb {
+	font-size: $fssmall;
+	line-height: 1;
+
+	ul,ol {
+		margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+
+		li {
+			display: inline-block;
+
+			.arrow {
+				font-size: .5rem;
+				margin: 0 .3rem 0 .5rem;
+			}
+
+			+li {
+				&:before {
+					color: $textcolor_lighten !important;
+					padding-left: .28rem !important;
+					padding-right: .28rem !important;
+					@include mb2_font_fa();
+					content: '\f105' !important;
+				}
+			}
+
+		}
+	}
+
+	// For Moodle 3.8
+	.css_rbxt & {
+		ul,
+		ol {
+			li {
+				+li {
+					&:before {
+						padding-left: 0 !important;
+					}
+				}
+			}
+		}
+	}
+
+	.dir-rtl & {
+
+		ul,ol {
+
+			li {
+
+				+li {
+					&:before {
+						content: '\f104' !important;
+					}
+				}
+			}
+		}
+
+	}
+
+}
+
+
+@media only screen and (max-width: $wmediumdevice) {
+
+	.breadcrumb {
+		display: block;
+
+		nav,
+		ul,ol {
+			width: 100%;
+		}
+	}
+
+}

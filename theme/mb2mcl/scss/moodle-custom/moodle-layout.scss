@@ -1,0 +1,21 @@
+
+.no-overflow {
+	.block & {
+		overflow: visible;
+	}
+}
+
+#user-notifications {
+	clear: both;
+}
+
+
+.path-mod-page {
+
+	#page-content {
+		.generalbox.py-3 {
+			padding: 0 !important;
+		}
+	}
+
+}

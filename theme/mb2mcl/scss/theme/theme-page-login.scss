@@ -1,0 +1,38 @@
+
+.default-login {
+
+	.loginform {
+
+		@media only screen and (min-width:$wmediumdevice){
+			display: flex;
+			flex-flow: row;
+
+			.loginleft {
+				flex: 0 0 40%;
+				max-width: 40%;
+				padding-right: 15px;
+			}
+
+			.loginright {
+				flex: 0 0 60%;
+				max-width: 60%;
+				padding-left: 15px;
+			}
+		}
+
+		@media only screen and (max-width:$wmediumdevice){
+			.loginright {
+				margin-top: 3rem;
+			}
+		}
+
+	}
+
+}
+
+
+.signupform {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,53 @@
+
+.format-buttons {
+
+
+	#buttonsectioncontainer {
+		margin: 15px auto;
+		padding: 10px 10px 0 10px;
+		background-color: $color_gray2;
+		background-image: url([[pix:theme|svg/strip1_black8]]);
+		@include mb2_border_radius(3px);
+		border: solid 1px $color_box_border;
+
+		.buttonsection {
+			@include gradient-y($accent3, darken($accent3,9%));
+			color: #fff;
+			font-weight: $fwheadings;
+			font-size: $fsheading4;
+			margin-bottom: 5px;
+			width: 49px;
+			height: 49px;
+			line-height: 49px;
+
+
+			&.sectionvisible {
+				@include gradient-y($accent1, darken($accent1,9%));
+			}
+		}
+
+		.divisorsection {
+			margin-bottom: 5px;
+
+			.divisortext {
+				font-weight: inherit;
+				color: inherit;
+				font-size: inherit;
+				height: 49px;
+			}
+
+		}
+
+	}
+
+
+	&.dir-rtl {
+
+		#buttonsectioncontainer {
+			.divisorsection {
+				margin: 0 25px 10px 4px;
+			}
+		}
+	}
+
+}

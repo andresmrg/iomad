@@ -1,0 +1,96 @@
+
+.theme-plugins {
+
+	position: relative;
+	z-index: 4;
+	display: table-cell;
+	vertical-align: middle;
+
+
+	.popover-region {
+		display: inline-block;
+		float: none !important;
+	}
+
+	.popover-region-toggle {
+		position: relative;
+		text-align: center;
+		color: $accent1 !important;
+		margin: 0 0 0 1.1rem;
+		padding: 0;
+
+
+		> i {
+			margin: 0;
+			font-size: 1.5rem;
+			width: auto;
+			height: auto;
+			position: relative;
+			top: .25rem;
+
+			&:before {
+				@include mb2_font_lineicons();
+				content: '\e995';
+			}
+		}
+
+	}
+
+
+
+	.header-color & {
+		.popover-region-toggle {
+			color: #fff !important;
+		}
+	}
+
+
+	.popover-region-notifications {
+
+		.popover-region-toggle {
+
+			i {
+				top: .15rem;
+
+				&:before {
+					content: '\e911';
+				}
+			}
+
+			&:before {
+				bottom: -15px;
+			}
+
+			&:after {
+				bottom: -16px;
+				z-index: 6;
+			}
+		}
+	}
+
+	.popover-region-container {
+		top: 42px;
+		z-index: 5;
+	}
+
+}
+
+
+@media only screen and (max-width: $wmediumdevice) {
+
+	.theme-plugins {
+
+		position: static;
+
+		.popover-region {
+			position: static;
+		}
+
+		.popover-region-container {
+			width: 100%;
+			top: 51px;
+		}
+	}
+
+
+}

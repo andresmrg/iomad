@@ -1,0 +1,27 @@
+
+.highlight {
+    color: #fff !important;
+    background-color: $accent1;
+    padding: 0 .3rem;
+}
+
+
+.theme-highlight {
+	padding: 1px 5px;
+
+	&.type-1 {
+		background-color: $accent1;
+		color: #fff;
+	}
+
+	&.type-2 {
+		background-color: $accent2;
+		color: #fff;
+	}
+
+
+	&.type-3 {
+		border: solid 2px $accent1;
+		padding: 0 3px;
+	}
+}

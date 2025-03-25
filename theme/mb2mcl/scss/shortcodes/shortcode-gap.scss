@@ -1,0 +1,10 @@
+
+
+@media only screen and (max-width: $wmediumdevice){
+	.gap {
+		&.no-smallscreen {
+			display: none;
+		}
+	}
+
+}

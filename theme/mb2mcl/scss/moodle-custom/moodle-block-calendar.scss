@@ -1,0 +1,254 @@
+
+.block_calendar_month {
+	.calendarwrapper {
+		width: 100%;
+		max-width: 21rem;
+	}
+
+	.css_6wum &	{
+		.calendarwrapper {
+			max-width: 100%;
+		}
+	}
+}
+
+.css_6wum #region-main {
+	.calendarwrapper {
+		td {
+			> div {
+				height: auto;
+			}
+		}
+	}
+}
+
+
+.block_fake {
+	.calendarwrapper {
+		margin-bottom: 1rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+
+.minicalendar {
+
+	.block & {
+
+		max-width: 21rem;
+		border-collapse: separate;
+		border-spacing: 1px;
+
+		caption.calendar-controls {
+			background-color: $accent1;
+			padding: 0 3px !important;
+			font-size: $fssmall !important;
+			margin-bottom: .3rem;
+
+			h3 {
+				margin-bottom: 0;
+				margin-top: 0;
+				font-size: $fssmall;
+				font-weight: inherit;
+				padding: 4px 0;
+			}
+
+			a {
+				color: #fff !important;
+
+				&.arrow_link {
+					font-size: $fssmall*.75 !important;
+					text-align: center !important;
+				}
+			}
+		}
+
+		thead {
+			background-color: darken($color_gray2, 3%);
+		}
+
+
+
+		td {
+
+			width: 14.2%;
+			@include mb2_border_radius(.1rem);
+
+			> a {
+				color: #fff !important;
+			}
+
+			&.today {
+				background-color: rgba(0,0,0,.32);
+			}
+
+			&.weekend {
+				color: $textcolor_lighten !important;
+			}
+
+		}
+
+
+		th,
+		td {
+			abbr[title],
+			abbr[data-original-title] {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.dark .block &,
+	.dark1 .block & {
+
+		thead {
+			background-color: rgba(255,255,255,.05);
+			color: #fff;
+		}
+
+		td {
+
+			&.today {
+				background-color: rgba(0,0,0,.15);
+
+				> a {
+					color: #fff !important;
+				}
+			}
+
+			&.weekend {
+				color: rgba(255,255,255,.25) !important;
+
+				> a {
+					color: #fff !important;
+				}
+			}
+
+
+		}
+	}
+
+}
+
+
+
+
+
+
+$event_color_site: #30638E;
+$event_color_category: #20A39E;
+$event_color_course: #FF5A5F;
+$event_color_group: #3FA7D6;
+$event_color_user: #FFBA49;
+
+
+// Calendar event background colours defined.
+.calendar_event_category {
+    background-color: $event_color_category !important;
+	border-color: $event_color_category !important;
+	background-image: none !important;
+	@include mb2_headings_color(#fff);
+	@include mb2_icon_color(#fff);
+	@include mb2_links_color(rgba(255,255,255,.5), #fff);
+	color: #fff;
+
+	+ i {
+		color: $event_color_category !important;
+	}
+
+}
+.calendar_event_course {
+    background-color: $event_color_course !important;
+	border-color: $event_color_course !important;
+	background-image: none !important;
+	@include mb2_headings_color(#fff);
+	@include mb2_icon_color(#fff);
+	@include mb2_links_color(rgba(255,255,255,.5), #fff);
+	color: #fff;
+
+	+ i {
+		color: $event_color_course !important;
+	}
+}
+
+.calendar_event_site {
+    background-color: $event_color_site !important;
+	border-color: $event_color_site !important;
+	background-image: none !important;
+	@include mb2_headings_color(#fff);
+	@include mb2_icon_color(#fff);
+	@include mb2_links_color(rgba(255,255,255,.5), #fff);
+	color: #fff;
+
+	+ i {
+		color: $event_color_site !important;
+	}
+}
+
+.calendar_event_group {
+    background-color: $event_color_group !important;
+	border-color: $event_color_group !important;
+	background-image: none !important;
+	@include mb2_headings_color(#fff);
+	@include mb2_icon_color(#fff);
+	@include mb2_links_color(rgba(255,255,255,.5), #fff);
+	color: #fff;
+
+	+ i {
+		color: $event_color_group !important;
+	}
+}
+
+.calendar_event_user {
+    background-color: $event_color_user !important;
+	border-color: $event_color_user !important;
+	background-image: none !important;
+	@include mb2_headings_color(#fff);
+	@include mb2_icon_color(#fff);
+	@include mb2_links_color(rgba(255,255,255,.5), #fff);
+	color: #fff;
+
+	+ i {
+		color: $event_color_user !important;
+	}
+}
+
+
+
+.block .calendar_filters {
+
+
+	margin-top: 0 !important;
+
+	li {
+		a {
+			color: inherit;
+
+			&:hover,
+			&:focus {
+				color: inherit;
+
+
+				.eventname {
+					text-decoration: none;
+				}
+			}
+
+			span {
+				i {
+					color: #fff !important;
+				}
+			}
+
+			.eventname {
+				color: inherit !important;
+			}
+		}
+
+
+	}
+}

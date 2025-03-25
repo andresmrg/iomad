@@ -1,0 +1,106 @@
+
+@mixin mb2_border_radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin mb2_border_radius_imp($radius) {
+  -webkit-border-radius: $radius !important;
+     -moz-border-radius: $radius !important;
+      -ms-border-radius: $radius !important;
+          border-radius: $radius !important;
+}
+
+
+
+@mixin mb2_box_shadow($size, $color)
+{
+	-webkit-box-shadow: $size $color;
+  	-moz-box-shadow: $size $color;
+	-ms-box-shadow: $size $color;
+  	box-shadow: $size $color;
+}
+
+@mixin mb2_box_shadow_none() {
+    -webkit-box-shadow: none !important;
+  	-moz-box-shadow: none !important;
+	-ms-box-shadow: none !important;
+  	box-shadow: none !important;
+}
+
+@mixin mb2_transition1($type, $speed){
+	-webkit-transition: $type $speed ease-in-out;
+  	-moz-transition: $type $speed ease-in-out;
+	-ms-transition: $type $speed ease-in-out;
+  	transition: $type $speed ease-in-out;
+}
+
+@mixin mb2_transition2($transition){
+	-webkit-transition: $transition ease-in-out;
+  	-moz-transition: $transition ease-in-out;
+	-ms-transition: $transition ease-in-out;
+  	transition: $transition ease-in-out;
+}
+
+@mixin mb2_transform_scale($size){
+	-webkit-transform: scale($size);
+  	-moz-transform: scale($size);
+	-ms-transform: scale($size);
+  	transform: scale($size);
+}
+
+
+
+@mixin mb2_transform_rotate($deg,$orgin) {
+	-ms-transform: rotate($deg);
+	-ms-transform-origin: $orgin;
+    -webkit-transform: rotate($deg);
+	-webkit-transform-origin: $orgin;
+	-o-transform: rotate($deg);
+	-o-transform-origin:$orgin;
+	-moz-transform: rotate($deg);
+	-moz-transform-origin:$orgin;
+    transform: rotate($deg);
+	transform-origin:$orgin;
+}
+
+@mixin mb2_transform_rotate_scale($deg,$orgin, $scale) {
+	-ms-transform: rotate($deg) scale($scale);
+	-ms-transform-origin: $orgin;
+    -webkit-transform: rotate($deg) scale($scale);
+	-webkit-transform-origin: $orgin;
+	-o-transform: rotate($deg) scale($scale);
+	-o-transform-origin:$orgin;
+	-moz-transform: rotate($deg) scale($scale);
+	-moz-transform-origin:$orgin;
+    transform: rotate($deg) scale($scale);
+	transform-origin:$orgin;
+}
+
+
+@mixin gradient-y-important($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent) !important;
+  background-repeat: repeat-x;
+}
+
+@mixin mb2_sronly() {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px !important;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0 !important;
+}
+
+
+@mixin mb2_transition_none(){
+	-webkit-transition: all 0s ease 0s !important;
+  	-moz-transition: all 0s ease 0s !important;
+	-ms-transition: all 0s ease 0s !important;
+  	transition: all 0s ease 0s !important;
+}

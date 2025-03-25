@@ -1,0 +1,60 @@
+
+
+.forumpost {
+
+    .path-mod-forum & {
+        background-color: $color_gray2;
+        margin-bottom: 1rem !important;
+        @include mb2_border_radius(.2rem);
+
+        .header {
+            font-size: $fssmall;
+            color: $textcolor_lighten;
+            margin-bottom: .5rem !important;
+
+            address {
+                margin-bottom: 0;
+            }
+
+            .mb-3 {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .post-content-container {
+            padding: .5rem;
+            background-color: #fff;
+            @include mb2_border_radius(.2rem);
+            border: solid 1px rgba(0,0,0,.1);
+        }
+
+
+        .post-actions {
+            margin-top: .5rem;
+            font-size: $fssmall;
+            color: $textcolor_lighten;
+
+            .btn {
+                font-size: $fssmall;
+            }
+        }
+
+        .attachedimages {
+            margin-top: 1rem;
+            text-align: center;
+        }
+    }
+
+}
+
+
+.path-mod-forum :target>.forumpost:before {
+
+        width: 6px;
+        @include mb2_border_radius(.2rem);
+        top: 1.5rem;
+        bottom: 1.5rem;
+        left: -3px;
+        background-color: $accent1;
+
+}

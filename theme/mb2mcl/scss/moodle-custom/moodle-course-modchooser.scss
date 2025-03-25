@@ -1,0 +1,103 @@
+.modchooser {
+	.modal-footer {
+		height: auto;
+	}
+}
+
+.modchoosercontainer {
+
+	@include mb2_transition1(all, .15s);
+
+	.searchbar {
+		.search-icon {
+			position: relative;
+			top: -.15rem;
+		}
+
+		.clear {
+			button {
+				border: 0 !important;
+				background-color: transparent !important;
+			}
+		}
+	}
+
+	.card-body {
+	    border: solid 1px rgba(0,0,0,.1);
+	    font-size: .85rem;
+		@include mb2_border_radius(.15rem);
+
+		img.icon {
+		    max-width: 1.8rem;
+		}
+
+		.optionname {
+		    margin-bottom: .45rem;
+		}
+
+		.optionactions {
+		    background-color: rgba(0,0,0,.05);
+		    @include mb2_border_radius(.15rem);
+		}
+
+		&:hover {
+			border-color: rgba(0,0,0,.35);
+			@include mb2_box_shadow(0 0 0 4px, rgba(0,0,0,.05));
+		}
+
+
+	}
+
+
+	.optionactions {
+		button {
+			background-color: transparent !important;
+			color: $textcolor_lighten !important;
+			border: 0;
+			box-shadow: none !important;
+
+			&[data-favourited="true"] {
+				i {
+					color: orange;
+				}
+			}
+		}
+	}
+
+	.tab-content {
+		background-color: #fff !important;
+		border: 0 !important;
+	}
+
+
+	.optionscontainer {
+	    padding: 0 !important;
+	}
+
+
+	/* Tabs */
+
+	.nav-tabs {
+	    border: 0;
+	    margin: 0 -.3rem;
+	    margin-bottom: 1rem;
+	    background-color: transparent;
+	    display: block !important;
+
+		.nav-link {
+		    padding: 0 .55rem;
+		    border: 0;
+		    color: inherit;
+		    border-radius: 0;
+		    background-color: transparent;
+		    display: inline-block !important;
+
+			&.active {
+			    background-color: transparent !important;
+			    color: $accent1 !important;
+			}
+		}
+
+	}
+
+}

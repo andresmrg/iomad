@@ -1,0 +1,224 @@
+
+/* ======================= GENERAL STYLE */
+
+.coursetoc-sectionlist {
+    .block_coursetoc & {
+        padding: 1.1rem 1rem 0 1rem;
+    }
+
+    .style-minimal .block_coursetoc & {
+        padding: 1.1rem 1.3rem 0 1.3rem;
+    }
+
+    .hiddenicon {
+        margin-left: .3rem;
+    }
+}
+
+.coursetoc-section {
+    margin-bottom: 1.4rem;
+}
+
+.coursetoc-sectionlist .itemimage {
+    display: none;
+    width: 16px;
+    margin-right: .45rem;
+}
+
+.coursetoc-section-modules {
+    display: none;
+
+    .coursetoc-section.active & {
+        display: block;
+    }
+}
+
+.coursetoc-subsection-modules {
+    display: none;
+
+    .coursetoc-subsection.active & {
+        display: block;
+    }
+}
+
+.coursetoc-subsection-tite,
+.coursetoc-section-tite {
+    position: relative;
+    padding-left: 15px;
+    line-height: 1.2;
+
+    .title-text {
+        font-weight: $fwbold;
+    }
+
+    .title-complete {
+        color: $textcolor_lighten;
+        font-size: $fssmall;
+        margin-left: .2rem;
+    }
+}
+
+
+/* ======================= SECTION TOGLE ARROWS */
+
+.coursetoc-section-tite,
+.coursetoc-subsection-tite {
+
+    .coursetoc-section-toggle,
+    .coursetoc-subsection-toggle {
+        color: inherit;
+        text-align: inherit;
+        line-height: inherit;
+    }
+
+    .toggle-icon {
+        position: absolute;
+        display: block;
+        width: 16px;
+        height: 16px;
+        left: 0;
+        top: 50%;
+        margin-top: -8px;
+        line-height: 16px;
+        color: $textcolor;
+
+        &:before {
+            @include mb2_font_fa();
+            content: '\f105';
+        }
+
+        .dir-rtl & {
+
+            &:before {
+                content: '\f104';
+            }
+        }
+    }
+}
+
+
+.coursetoc-section-tite {
+    .toggle-icon {
+        .coursetoc-section.active & {
+            &:before {
+                content: '\f107';
+            }
+        }
+    }
+}
+
+.coursetoc-subsection-tite {
+    .toggle-icon {
+        .coursetoc-subsection.active & {
+            &:before {
+                content: '\f107';
+            }
+        }
+    }
+}
+
+
+
+/* ======================= SECTION LIST */
+
+.section-modules,
+.subsection-modules {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+
+    li {
+        line-height: 1.2;
+        margin: 1rem 0;
+
+        a {
+          color: inherit;
+
+          &:after {
+              content: '';
+              display: inline-block;
+              width: 7px;
+              height: 7px;
+              margin-left: .8rem;
+              @include mb2_border_radius(50%);
+              border: solid 1px rgba(255,255,255,0);
+              background-color: rgba(255,255,255,0);
+          }
+
+          &:hover,
+          &:focus {
+              color: $linkcolor;
+          }
+
+        }
+
+        &.active {
+            a {
+                color: $linkcolor;
+                font-weight: $fwbold;
+            }
+        }
+
+
+        &.complete1 {
+
+             a {
+                 &:after {
+                     background-color: $textcolor;
+                     border-color: inherit;
+                 }
+
+                 &:hover:after,
+                 &:focus:after {
+                     background-color: $linkcolor;
+                 }
+
+             }
+
+        }
+
+        &.complete1.active {
+            a {
+                &:after {
+                    background-color: $linkcolor;
+                }
+            }
+        }
+
+        &.complete-1 {
+            a {
+                &:after {
+                    border-color: inherit;
+                }
+            }
+        }
+
+    }
+}
+
+
+/* Hide navigation block */
+
+.ctoc {
+    #page-sidebar {
+        .block_navigation {
+            @include mb2_sronly();
+        }
+    }
+}
+
+
+/* ======================= TOGGLE NAVIGATION */
+
+.coursetoc-toggleall {
+    font-size: $fssmall;
+    color: inherit;
+    flex: 0 0 auto;
+}
+
+.coursetoc-tool {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    margin: 1.1rem 1.3rem -1.1rem 1.3rem;
+}

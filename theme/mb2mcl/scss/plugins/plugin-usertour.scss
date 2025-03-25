@@ -1,0 +1,30 @@
+
+#footer {
+	.usertour {
+		width: 100%;
+		max-width: $pagewidth;
+		margin: .3rem auto 0 auto;
+		padding: 0 15px;
+	}
+
+	.logininfo {
+
+		.usertour {
+			display: inline-block;
+			margin: 0 0 0 .6rem;
+			width: auto;
+			padding: 0;
+		}
+
+	}
+}
+
+
+@media only screen and (max-width: $wmediumdevice){
+
+	.usertour {
+		text-align: center;
+		margin: 0 auto;
+	}
+
+}

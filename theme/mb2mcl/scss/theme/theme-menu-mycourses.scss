@@ -1,0 +1,26 @@
+
+.main-menu {
+
+    .mycourses {
+
+        .mycourses-num {
+    		font-size: $fssmall;
+    		opacity: .5;
+    		display: inline-block;
+    		vertical-align: middle;
+    	}
+
+        > a {
+            &:after {
+                display: none !important;
+            }
+        }
+
+        .visible0 {
+			> a {
+				color: $textcolor_lighten !important;
+			}
+		}
+    }
+
+}

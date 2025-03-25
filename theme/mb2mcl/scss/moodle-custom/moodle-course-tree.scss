@@ -1,0 +1,104 @@
+
+.course_category_tree {
+	.category {
+		@include mb2_collabsible_item();
+
+		margin-bottom: .5rem;
+
+		&.with_children {
+			> .content {
+				margin-top: .5rem;
+			}
+		}
+	}
+
+	+ .buttons {
+
+		margin-top: 3rem;
+
+		.singlebutton {
+			display: block;
+			+ .singlebutton {
+				margin-left: 0;
+				margin-top: 1rem;
+			}
+		}
+
+		[type="submit"],
+		[type="submit"].btn-secondary {
+			@include button-variant($color_success, $color_success);
+			width: 100%;
+		}
+	}
+}
+
+
+
+/* Course box in course tree */
+
+.coursebox {
+
+	&.isinfobox,
+	&.isinfobox.even {
+		/* width: 100%; */
+	    background-color: transparent;
+		margin-bottom: .5rem;
+		padding: 0 !important;
+
+		.info {
+			background-color: $color_gray3;
+			padding: .2rem .45rem;
+			@include mb2_transition1(all, .15s);
+			@include mb2_border_radius( .2rem);
+			@include clearfix();
+
+			a {
+				color: inherit;
+			}
+
+			.enrolmenticons {
+				position: relative;
+				top: .32rem;
+				display: inline-block;
+				background-color: rgba(0,0,0,.08);
+				color: rgba(0,0,0,.35);
+			    padding: 0 0 0 .5rem;
+			    @include mb2_border_radius(.2rem);
+				margin-left: .6rem;
+				float: none;
+			}
+
+			.moreinfo {
+				position: relative;
+				top: .1rem;
+				z-index: 1;
+			}
+
+			.coursename {
+				font-weight: $fwheadings;
+				color: $accent1;
+
+				a {
+					background-position: left .3rem;
+				}
+			}
+
+			&:hover {
+				background-color: $color_gray3 !important;
+			}
+		}
+	}
+
+	&.isinfobox.collapsed {
+		.info {
+			background-color: $color_gray2;
+			border-color: $color_gray2;
+            border-style: solid;
+
+			&:hover {
+				border-color: $color_gray3;
+			}
+		}
+	}
+
+}

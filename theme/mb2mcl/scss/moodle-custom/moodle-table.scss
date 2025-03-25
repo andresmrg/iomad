@@ -1,0 +1,71 @@
+#main-content {
+
+	.theme-table-wrap {
+		position: relative;
+		background-color: #fff;
+		z-index: 2;
+		margin-top: 1.3rem;
+		@include mb2_border_radius(.2rem);
+		clear: both;
+
+		&.wider {
+			border: solid 1px $color_box_border;
+			overflow-x: auto;
+		}
+
+		table {
+			td,
+			th {
+				a:not(.btn) {
+					color: $headingscolor;
+
+					&:hover,
+					&:focus {
+						color: $linkcolor;
+					}
+				}
+			}
+		}
+	}
+
+	.attendancereporttable {
+		.theme-table-wrap {
+			position: static;
+		}
+	}
+
+}
+
+
+table.generaltable,
+.path-mod-forum table.forumheaderlist,
+table.collection,
+table.preference-table,
+table.rolecap,
+table#categoryquestions,
+table.userenrolment,
+table.yui3-datatable-table,
+table.discussion-list {
+	font-size: $fssmall;
+
+	h1,h2,h3,h4,h5,h6 {
+		margin-top: .4rem;
+		margin-bottom: .4rem;
+	}
+
+	td {
+		padding: .2rem;
+	}
+
+	th {
+		padding: .55rem .2rem;
+	}
+
+	.btn,
+	button,
+	.button,
+	input[type="submit"],
+	input[type="button"] {
+		@include mb2_btn_xs();
+	}
+}

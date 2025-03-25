@@ -1,0 +1,54 @@
+
+
+.topics + .section-navigation,
+.activity-navigation {
+	@include mb2_custom_header();
+	margin-top: 3rem !important;
+
+	.form-inline {
+		margin-bottom: 0;
+
+		label {
+			margin-bottom: 0;
+		}
+
+		.custom-select {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	#prev-activity-link,
+	#next-activity-link,
+	a {
+		color: inherit;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 11.5rem;
+		max-width: 100%;
+		padding: 0;
+
+		&:hover,
+		&:focus,
+		&:active:focus {
+			color: $linkcolor !important;
+			@include mb2_box_shadow_none();
+		}
+	}
+}
+
+
+
+@media only screen and (max-width: $wmediumdevice ){
+
+	.topics + .section-navigation,
+	.activity-navigation {
+		text-align: center;
+
+		.float-left,
+	    .float-right {
+	        float: none !important;
+	    }
+	}
+}

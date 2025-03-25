@@ -1,0 +1,44 @@
+
+
+.theme-banner {
+    position: absolute;
+    background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+    width: 780px;
+    max-width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        @include gradient-x( $color_gray6, rgba( $color_gray6,.35 ) );
+    }
+
+    .dir-rtl & {
+        &:after {
+            @include gradient-x( rgba($color_gray6,.35 ), $color_gray6 );
+        }
+    }
+
+}
+
+@media only screen and (max-width: 990px){
+
+    .theme-banner {
+
+        &:after {
+            background-image: none;
+            background-color: rgba( $color_gray6, .95 );
+        }
+
+    }
+
+}

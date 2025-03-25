@@ -1,0 +1,13 @@
+
+
+@mixin mb2_block_variant($color: $accent1) {
+
+    &:after {
+        border-color: rgba($color, .3);
+    }
+
+    &:before {
+        border-color: $color;
+    }
+
+}

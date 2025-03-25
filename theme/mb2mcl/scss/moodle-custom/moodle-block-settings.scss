@@ -1,0 +1,36 @@
+
+
+.block_settings {
+	.footer {
+		margin-top: 1rem;
+		padding-top: 1.3rem;
+		border-top: solid 1px $color_border;
+
+		input {
+			width: 100% !important;
+			@include mb2_border_radius_imp(.15rem);
+		    margin: 0!important;
+		    height: auto;
+		}
+
+		[type="submit"] {
+			margin-top: .9rem !important;
+			width: 100% !important;
+		    height: auto;
+			@include button-variant( $accent1, $accent1);
+		}
+
+		.input-group-append,
+		.input-group,
+		.form-group {
+		  display: block;
+		  width: 100%;
+		}
+
+	}
+
+	#settingsnav {
+		padding: 0 !important;
+	}
+
+}

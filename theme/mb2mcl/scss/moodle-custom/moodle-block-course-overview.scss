@@ -1,0 +1,334 @@
+
+@media only screen and (min-width: $wdmediumdevice + 1){
+
+	.dashboard-card-deck .dashboard-card {
+		width: calc(50% - 30px) !important;
+
+		.sidebar-one & {
+			width: calc(33.3333333333% - 30px) !important;
+		}
+
+		.hide-sidebars &,
+		.sidebar-one.hide-sidebars &,
+		.nosidebar-case & {
+			width: calc(25% - 30px) !important;
+		}
+	}
+
+
+	/* ================ MOODLE 4.4 */
+
+	.card-grid > .col {
+
+		max-width: calc(33.3333333333% - 20px);
+		flex: 0 0 calc(33.3333333333% - 20px);
+		
+	
+		.hide-sidebars &,
+		.sidebar-one.hide-sidebars &,
+		.nosidebar-case & {
+			max-width: calc(25% - calc(90px / 4));
+			flex: 0 0 calc(25% - calc(90px / 4));
+		}
+	}
+
+}
+
+
+@media only screen and (max-width: $wdmediumdevice){
+
+
+	/* ================ MOODLE 4.4 */
+
+	.card-grid > .col {
+
+		max-width: calc(50% - 15px);
+		flex: 0 0 calc(50% - 15px);
+	}
+
+
+}
+
+
+
+@media only screen and (max-width: $wsmalldevice){
+
+
+	/* ================ MOODLE 4.4 */
+
+	.card-grid > .col {
+
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+
+
+}
+
+
+
+
+
+
+
+/* ================ MOODLE 4.4 */
+.card-grid {
+	gap: 30px;
+
+	> .col {
+		margin-bottom: 0 !important;
+	}
+}
+
+
+
+
+
+
+/* ================ MOODLE 4.4 card carousel */
+
+.css_af5e {
+	.card-carousel {
+		gap: 30px;
+
+		.myc-item {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+.block_recentlyaccessedcourses {
+	.content {
+		padding-bottom: 0 !important;
+	}
+
+	.paging-bar-container {
+		margin-top: -.9rem;
+	}
+}
+
+
+/* ================ MOODLE 4: start */
+
+#block-region-side-post,
+#block-region-side-pre  {
+	.dashboard-card-deck:not(.fixed-width-cards) {
+		.dashboard-card {
+			width: calc(100% - 30px) !important;
+		}
+
+		&.one-row {
+			.dashboard-card {
+				width: 100% !important;
+			}
+		}
+	}
+}
+
+.block_recentlyaccessedcourses {
+	.content {
+		padding-bottom: 0 !important;
+	}
+
+	.paging-bar-container {
+		margin-top: -.9rem;
+	}
+}
+
+/* ================ MOODLE 4: end */
+
+
+.block-myoverview {
+
+	[data-region="filter"] {
+		
+		margin-bottom: 1.8rem!important;
+		border-bottom: solid 1px rgba(0,0,0,.1);
+
+		> div {
+			margin-bottom: 1.55rem!important;
+			align-items: center;
+		}
+
+		input[type="text"],
+		input[type="search"] {
+			min-height: 1.8rem;
+		}
+	}
+
+	.paged-content-page-container {
+		+ .m-t-1 {
+			margin-top: 0 !important;
+		}
+	}
+
+}
+
+
+[data-region="favourite-icon"] .icon {
+    color: $color_warning;
+}
+
+
+.block-myoverview,
+.block_recentlyaccessedcourses {
+
+	.course-info-container {
+
+		.text-truncate {
+
+			margin-bottom: 0 !important;
+
+			.categoryname {
+				//font-size: $fssmall;
+				margin-bottom: -.34rem !important;
+				color: $textcolor;
+				min-height: 2.1rem;
+			}
+		}
+
+		> div > div > div {
+			.text-truncate {
+				//font-size: $fssmall;
+				margin-bottom: -.34rem !important;
+			}
+		}
+	}
+
+	.multiline {
+		line-height: $lhheadings;
+		display: block;
+	}
+
+	.coursename {
+		display: inline-block;
+	}
+
+}
+
+
+
+/* ================ CUSTOM COURSE VIEW */
+
+.myc-item {
+
+	border-radius: .38rem;
+	box-shadow: 0 3px 10px rgba(0,0,0,.06);
+	padding: .6rem;
+
+	body:not(.css_af5e) & {
+		margin-bottom: 30px;
+	}
+
+	.dashboard-card-img {
+		border-radius: .2rem !important;
+		height: 9.8rem;
+
+		.badge {
+			position: absolute;
+			bottom: .5rem;
+			right: .5rem;
+		}
+	}
+
+	.menu {
+		position: absolute;
+		z-index: 1;
+		right: 1rem;
+		top: 1rem;	
+		z-index: 2;
+
+		.coursemenubtn.btn.btn-link {
+			padding: 0 !important;
+			margin: 0 !important;
+			width: 2rem !important;
+    		height: 2rem !important;
+    		border-radius: 50% !important;
+			background-color: #fff !important;
+
+			i {
+				color: $headingscolor !important;
+			}
+		}
+	}
+
+
+	[data-region="favourite-icon"] {
+		line-height: 1;
+		position: absolute;
+		top: .5rem;
+		left: .5rem;
+
+		i {
+			text-shadow: 1px 1px rgba(0,0,0,.85);
+		}
+	}
+
+	.coursename {
+		[data-region="favourite-icon"] {
+			display: none;
+		}
+	}
+
+	.aalink.coursename {
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+	
+}
+
+.myc-catname {
+	i {
+		font-size: 1.2em;
+	}
+}
+
+
+/* ================ LIST AND SUMMARY VIEW */
+
+.course-listviewlist,
+.course-summarylist {
+	margin-top: -1.5rem;
+}
+
+
+
+/* ================ PROGRESS BAR */
+
+.myc-progress-bar {
+    
+	.progress-text {
+		line-height: 1;
+	}
+
+	.progress-area {
+		background-color: rgba($color_success, .16);
+		border-radius: 999px;
+	}
+
+	&.no-completion {
+		.progress-area {
+			background-color: $color_gray2;
+		}
+	}
+
+	.progress-val {
+		height: 11px;
+		background-color: $color_success;
+		border-radius: 999px;
+	}
+}

@@ -1,0 +1,259 @@
+
+
+
+.btn,
+.button,
+button,
+[type="button"],
+a[data-action="addstandardtag"],
+.tag-management-box .addtomyinterests,
+.tag-management-box .flagasinappropriate,
+.tag-management-box .edittag,
+.tag-management-box .removefrommyinterests,
+.addresourcemodchooser a,
+.add-sections {
+	@include mb2_btn();
+
+	i {
+		color: inherit !important;
+	}
+}
+
+
+
+
+/* Button secondary */
+
+.btn-secondary,
+.btn.btn-secondary,
+.filemanager-toolbar .btn.btn-secondary,
+[type="button"].btn-secondary,
+[type="button"].btn.btn-secondary,
+button.btn-secondary,
+button.btn.btn-secondary {
+	@include button-variant($btnsecondarycolor, $btnsecondarycolor);
+	color: #fff !important;
+}
+
+
+
+
+
+/* Button primary */
+
+.btn-primary,
+.btn.btn-primary,
+.filemanager-toolbar .btn.btn-primary,
+[type="submit"],
+[type="button"].btn-primary,
+[type="button"].btn.btn-primary,
+button.btn-primary,
+button.btn.btn-primary {
+	@include button-variant($btnprimarycolor, $btnprimarycolor);
+}
+
+
+[type="submit"] {
+	&.btn-secondary,
+	&.btn.btn-secondary {
+		@include button-variant($btnprimarycolor, $btnprimarycolor);
+	}
+}
+
+
+/* Button success */
+
+.btn-outline-success,
+.btn-success,
+.btn.btn-success,
+.filemanager-toolbar .btn.btn-success,
+[type="button"].btn-success,
+[type="button"].btn.btn-success,
+button.btn-success,
+button.btn.btn-success {
+	@include button-variant($color_success, $color_success);
+}
+
+
+/* Button info */
+
+.btn-info,
+.btn.btn-info,
+.filemanager-toolbar .btn.btn-info,
+[type="button"].btn-info,
+[type="button"].btn.btn-info,
+button.btn-info,
+button.btn.btn-info {
+	@include button-variant($color_info, $color_info);
+}
+
+
+/* Button danger */
+
+.btn-danger,
+.btn.btn-danger,
+.filemanager-toolbar .btn.btn-danger,
+[type="button"].btn-danger,
+[type="button"].btn.btn-danger,
+button.btn-danger,
+button.btn.btn-danger {
+	@include button-variant($color_danger, $color_danger);
+}
+
+
+/* Button warning */
+
+.btn-warning,
+.btn.btn-warning,
+.filemanager-toolbar .btn.btn-warning,
+[type="button"].btn-warning,
+[type="button"].btn.btn-warning,
+button.btn-warning,
+button.btn.btn-warning {
+	@include button-variant($color_warning, $color_warning);
+	color: #fff !important;
+}
+
+
+
+/* Button warning */
+
+.btn-inverse,
+.btn.btn-inverse,
+.filemanager-toolbar .btn.btn-inverse,
+[type="button"].btn-inverse,
+[type="button"].btn.btn-inverse,
+button.btn-inverse,
+button.btn.btn-inverse {
+	@include button-variant($accent3, $accent3);
+}
+
+
+
+/* Lanrge buttons */
+
+.btn-lg {
+	@include mb2_btn_lg();
+}
+
+
+/* Small buttons and buttons in blocks */
+
+.btn-sm,
+.style-default .block .btn,
+#block-region-content .block .btn {
+	@include mb2_btn_sm();
+}
+
+
+/* Extra small buttons */
+
+.btn-xs {
+	@include mb2_btn_xs();
+}
+
+
+.btn-border {
+
+	@include mb2_btn_border($btncolor);
+
+	&.btn-success {
+	    @include mb2_btn_border($color_success);
+	}
+
+	&.btn-warning {
+	    @include mb2_btn_border($color_warning);
+	}
+
+	&.btn-info {
+	    @include mb2_btn_border($color_info);
+	}
+
+	&.btn-danger {
+	    @include mb2_btn_border($color_danger);
+	}
+
+	&.btn-secondary {
+	    @include mb2_btn_border($btnsecondarycolor);
+	}
+
+	&.btn-primary {
+		@include mb2_btn_border($btnprimarycolor);
+	}
+
+	&.btn-inverse {
+	    @include mb2_btn_border($accent3);
+	}
+
+}
+
+
+/* Button link */
+
+.btn.btn-link:not(.activityiconcontainer),
+.btn-link:not(.activityiconcontainer) {
+	@include mb2_btn_link();
+}
+
+
+
+/* Set button margins */
+
+.btn {
+	+ .btn {
+		margin-left: .2rem;
+
+		&.btn-full {
+			margin-left: 0;
+		}
+	}
+
+	&.text-reset {
+		border: 0 !important;
+		background-color: transparent !important;
+		border-radius: 0;
+	}
+
+	.input-group & {
+		border-width: 1px;
+	}
+}
+
+
+
+.activity-information [data-region="completion-info"] {
+	.btn {
+		@include mb2_btn_xs();
+	}
+}
+
+
+
+/* Reset button style */
+
+button {
+	&.themereset {
+		border: 0;
+	  	padding: 0;
+	  	margin: 0;
+	  	background-color: transparent;
+		font-weight: inherit;
+		outline: .2rem solid transparent;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: transparent !important;
+			box-shadow: none !important;
+			color: inherit !important;
+			outline: .2rem solid transparent;
+		}
+	}
+}
+
+
+.btn-icon {
+	.dropdown > & {
+		@include mb2_btn_moodle_icon();
+	}
+}

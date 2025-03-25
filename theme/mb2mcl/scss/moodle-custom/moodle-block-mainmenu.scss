@@ -1,0 +1,41 @@
+
+.block_site_main_menu {
+
+	.activity {
+		a {
+			color: inherit;
+		}
+
+		img.activityicon {
+			width: 16px;
+		    position: relative;
+		    top: -.1rem;
+		}
+
+	}
+
+	/* MOODLE 4+ */
+
+	.css_6wum & {
+		.media-body {
+			.text-uppercase {
+				@include mb2_sronly();
+			}
+		}
+
+		.activityiconcontainer {
+			width: 30px;
+			height: 30px;
+			padding: 0;
+			@include mb2_border_radius(.18rem);
+		}
+
+		.activity-item {
+			padding: .4rem;
+
+			.quickeditlink {
+				margin-top: .2rem;
+			}
+		}
+	}
+}

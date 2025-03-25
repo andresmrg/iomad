@@ -1,0 +1,23 @@
+
+.pagination {
+	margin-right: .35rem;
+}
+
+.page-link {
+	
+
+	&:not(input) {
+		color: inherit;
+	}
+
+	&:hover,
+	&:focus {
+		color: $linkcolor;
+	}
+
+	.page-item.active & {
+		background-color: $accent1;
+		border-color: $accent1;
+		color: #fff !important;
+	}
+}

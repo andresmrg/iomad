@@ -1,0 +1,88 @@
+/* Fixed bar */
+
+.fixed-bar {
+
+    width: 530px;
+    position: fixed;
+    z-index:999;
+	@include mb2_transform_rotate(270deg, 0 0);
+    transform-origin: 0% 0%;
+	top: 530px;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		border: solid 1px $accent1;
+        background-color: #fff;
+        color: $accent1;
+		font-size: $fssmall;
+		padding: .3rem 1rem;
+		font-weight: $btnfw;
+		@include mb2_border_radius(.28rem);
+		margin: .3rem .2rem;
+
+        &:hover,
+		&:focus {
+			color: $accent1;
+			outline: 0;
+		}
+
+        &.fixed-panel-link {
+			border-color: $accent2;
+            color: $accent2;
+			display: none;
+
+            &:hover,
+    		&:focus {
+    			color: $accent2;
+    		}
+		}
+
+	}
+
+	.panellinkpass & {
+		.fixed-panel-link {
+			display: inline-block;
+		}
+	}
+
+	.editing & {
+		.theme-hide-sidebar {
+			display: none;
+		}
+	}
+
+
+	.dir-rtl & {
+		@include mb2_transform_rotate(90deg, 0 0);
+	    transform-origin: 100% 0%;
+	}
+
+
+}
+
+
+@media only screen and (max-width:768px){
+
+	.fixed-bar {
+		display: none;
+	}
+
+}
+
+
+@media only screen and (min-width:768px){
+
+	.hide-sidebars {
+
+		.sidebar-col {
+			display: none;
+		}
+
+		.content-col {
+			flex: 0 0 100% !important;
+			max-width: 100% !important;
+		}
+	}
+
+}

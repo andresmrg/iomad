@@ -1,0 +1,27 @@
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+	background-color: $accent1;
+}
+
+
+.block {
+	.page-item {
+
+		&:first-child {
+			.page-link {
+				@include mb2_border_radius(.2rem 0 0 .2rem);
+			}
+		}
+
+		&:last-child {
+			.page-link {
+				@include mb2_border_radius(0 .2rem .2rem 0);
+			}
+		}
+
+		.page-link {
+			padding: .2rem .5rem;
+		}
+	}
+}

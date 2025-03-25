@@ -1,0 +1,56 @@
+
+.owl-dots {
+    text-align: center;
+    margin-top: 1.35rem
+
+}
+
+.owl-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 0 4px rgba(0,0,0,.1);
+    background-color: rgba(0,0,0,.3);
+    margin: .4rem .7rem;
+    border-radius: 999px;
+	@include mb2_transition1(all, .15s);
+
+	&.active {
+		background-color: $accent1;
+	}
+}
+
+
+.owl-nav {
+
+    $owl_nav_size: 2.35rem;
+    @include mb2_transition1(all, .35s);
+    opacity: 0;
+
+    > div {
+        display: block;
+        width: $owl_nav_size;
+        height: $owl_nav_size;
+        line-height: $owl_nav_size * .9;
+        background-color: rgba(0,0,0,.4);
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        margin-top: ($owl_nav_size/2) * -1;
+        text-align: center;
+        font-size: 1.3rem;
+
+        &.owl-prev {
+            left: 1rem;
+        }
+
+        &.owl-next {
+            right: 1rem;
+        }
+    }
+
+
+    .owl-carousel:hover & {
+        opacity: 1;
+    }
+}

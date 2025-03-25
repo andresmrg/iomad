@@ -1,0 +1,21 @@
+
+input,
+textarea,
+select,
+button {
+	font-weight: inherit;
+}
+
+.form-control {
+	@include mb2_border_radius(.2rem);
+	padding-top: .22rem;
+	padding-bottom: .22rem;
+}
+
+textarea,
+textarea.form-control {
+	min-width: 15rem;
+	min-height: 6rem;
+	max-width: 100%;
+	margin: 0;
+}

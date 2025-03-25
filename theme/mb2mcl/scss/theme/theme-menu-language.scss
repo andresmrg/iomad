@@ -1,0 +1,55 @@
+
+.main-nav {
+    .langitem {
+        display: none !important;
+    }
+}
+
+
+
+.language-list {
+
+
+    .header-tools & {
+        margin: -.7rem 0 0 0;
+        padding: 0;
+        list-style: none;
+        background-color: $color_gray4;
+        position: absolute;
+        top: 100%;
+        right: .74rem;
+        z-index: 4;
+        min-height: 3.15rem;
+        min-width: 4.5rem;
+
+        &:before {
+            content: '';
+            display: block;
+            border: solid 2rem transparent;
+            border-right-color: $color_gray4;
+            position: absolute;
+            top: -.9rem;
+            right: 0;
+        }
+
+        li {
+            a {
+                display: block;
+                padding: .12rem .75rem;
+                @include mb2_transition1(all, .15s);
+                @include mb2_font_family($ffddmenu);
+                color: $colorddmenu;
+                font-size: $fsddmenu;
+                font-weight: $fwddmenu;
+                text-transform: $ttddmenu;
+                position: relative;
+
+                &:hover,
+                &:focus {
+                    color: $colorddhmenu;
+                }
+            }
+        }
+    }
+
+}

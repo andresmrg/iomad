@@ -1,0 +1,256 @@
+
+
+.format-topcoll {
+
+
+	&.editing {
+
+		.course-content ul.ctopics {
+			li {
+				&.section.main  {
+
+					.section_action_menu {
+						float: right;
+					}
+
+					.side {
+						padding: 10px 10px 0 10px;
+
+
+						&.right {
+							padding-top: 2px;
+
+							> a {
+								margin: 0 3px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+	.course-content ul.ctopics  {
+
+
+		&.topics {
+			padding-top: 15px;
+		}
+
+		li {
+
+			&.section.main,
+			&.tcsection {
+
+				margin: 0;
+
+
+				.content {
+					margin: 0;
+				}
+
+
+
+			}
+
+
+			&.section.main {
+				padding: 0;
+			}
+
+
+			&.section.main  {
+
+
+				.summary.summaryalwaysshown {
+					padding-top: 30px;
+				}
+
+
+				.side {
+					width: auto;
+					padding: 0;
+
+					.cps_centre {
+						display: none;
+						position: relative;
+						padding: 0 5px;
+						top: 17px;
+						font-size: $fssmall;
+
+						br {
+							display: none;
+						}
+
+					}
+
+				}
+
+				.right {
+
+					> a {
+						display: inline-block;
+					}
+				}
+
+			}
+
+
+
+			&.section {
+
+				.content {
+
+
+					.section {
+						margin: 0;
+					}
+
+
+					.toggle,
+					&.sectionhidden {
+						background-color: transparent;
+						@include mb2_border_radius(0);
+
+						&:hover {
+							background-color: transparent;
+						}
+
+						span:hover,
+						a.the_toggle:hover {
+							color: $headingscolor;
+						}
+					}
+
+					.toggle {
+
+
+						span.quickediticon img {
+							background-color: transparent;
+							border: 0;
+						}
+
+						span.the_toggle,
+						a.the_toggle {
+							padding: 0;
+							margin: 0;
+							background-image: none !important;
+							color: $headingscolor;
+							outline: none !important;
+
+							> h3,
+							h3.sectionname,
+							h3.section-title {
+								margin: 1rem 0 0 0;
+								outline: none !important;
+
+								&:before {
+									@include mb2_font_fa();
+									content: '\f105';
+									font-size: 18px;
+									margin-right: 10px;
+								}
+
+
+							}
+
+
+							&.toggle_open {
+								> h3,
+								h3.sectionname,
+								h3.section-title {
+
+									&:before {
+										content: '\f107';
+									}
+
+
+								}
+							}
+
+
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	#toggle-all,
+	#topcoll-display-instructions {
+		.side {
+			display: none;
+		}
+	}
+
+
+	#topcoll-display-instructions {
+		font-size: $fssmall;
+		color: $textcolor_lighten;
+	}
+
+
+
+
+
+	#toggle-all {
+
+
+		h4 {
+			font-size: $fsgeneral;
+			margin: 0;
+
+
+			span,
+			a {
+				background-image: none!important;
+				padding: 0 15px 0 0 !important;
+				margin: 0 !important;
+				color: $linkcolor;
+
+				&:hover,
+				&:focus {
+					color: $linkhcolor;
+				}
+
+				&:before {
+					@include mb2_font_fa();
+					content: '\f0da';
+					font-size: 18px;
+					margin-right: 3px;
+					position: relative;
+					top: 2px;
+				}
+
+				&#toggles-all-opened:before {
+					content: '\f0d7';
+				}
+
+			}
+
+		}
+
+
+	}
+
+
+}
+
+
+/* Hide section_availability when topic is collapsed */
+
+.section_availability {
+    margin: 20px 0;
+
+	.toggle_closed & {
+		display: none;
+	}
+}

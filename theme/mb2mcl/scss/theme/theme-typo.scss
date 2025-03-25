@@ -1,0 +1,156 @@
+
+html {
+	font-size: $fsbase;
+
+	&.theme-fs2 {
+		font-size: $fsbase2;
+	}
+
+	&.theme-fs3 {
+		font-size: $fsbase3;
+	}
+}
+
+
+body {
+	background-color: $color_gray6;
+	font-family: $ffgeneral, sans-serif;
+	color: $textcolor;
+	font-weight: $fwgeneral;
+	font-size: $fsgeneral;
+	line-height: $lhgeneral;
+
+	/* ====== FOR BETTER TEXT RENDERING */
+	/* Font varient */
+	font-variant-ligatures: none;
+	-webkit-font-variant-ligatures: none;
+	/* Smoothing */
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+
+/* Links */
+
+a {
+	color: $linkcolor;
+	outline: .2rem solid transparent;
+
+	&:hover,
+	&:focus {
+		color: $linkhcolor;
+		text-decoration: none;
+		outline: .2rem solid transparent;
+	}
+}
+
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6 {
+	@include mb2_font_family($ffheadings);
+	margin-bottom: 1.35rem;
+	font-weight: $fwheadings;
+	color: $headingscolor;
+	text-transform: $ttheadings;
+	font-style: $fstheadings;
+	line-height: $lhheadings;
+
+	.dark &,
+	.dark1 &,
+	.modal-dark & {
+		color: #fff;
+	}
+
+	table & {
+		margin-top: .54rem;
+		margin-bottom: .54rem;
+	}
+}
+
+h1,.h1 {font-size: $fsheading1;}
+h2,.h2 {font-size: $fsheading2;}
+h3,.h3 {font-size: $fsheading3;}
+h4,.h4 {font-size: $fsheading4;}
+h5,.h5 {font-size: $fsheading5;}
+h6,.h6 {font-size: $fsheading6;}
+
+
+/* Images */
+
+img {
+	max-width: 100%;
+	min-width: 12px;
+	height: auto;
+
+	&.iconlarge,
+	&.activityicon {
+		max-width: none;
+		min-width: 0;
+	}
+
+	&.activityicon {
+		width: 1.18rem;
+		height: 1.18rem;
+	}
+
+	&.img-border {
+		padding: .4rem;
+		border: solid 1px rgba(0,0,0,.1);
+		@include mb2_border_radius(.63rem);
+	}
+
+	&.rounded-circle {
+	    max-width: none;
+	}
+}
+
+
+
+.bold,
+.warning,
+.errorbox .title,
+.pagingbar .title,
+.pagingbar .thispage,
+.block_settings .block_tree .active_tree_node,
+b,
+.strong,
+strong {
+	font-weight: $fwbold;
+}
+
+
+.thintext {
+	font-weight: $fwthin;
+}
+
+
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+
+[aria-selected="false"] {
+    font-weight: inherit;
+}
+
+
+.lhsmall {
+	line-height: 1 !important;
+}
+
+.tsizesmall {
+	font-size: $fssmall !important;
+}

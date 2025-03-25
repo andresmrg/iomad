@@ -1,0 +1,114 @@
+
+.theme-page-heading {
+	background-color: $color_gray6;
+	color: $textcolor_lighten;
+	position: relative;
+	padding: 1.1rem 0;
+	z-index: 2;
+
+	.container-fluid {
+		position: relative;
+		z-index: 1;
+	}
+
+}
+
+.page-heading-left {
+	float: left;
+
+	.coursename {
+        margin-bottom: 0;
+
+        a {
+            color: inherit !important;
+        }
+    }
+}
+
+.page-heading-right {
+	float: right;
+
+	#coursesearchnavbar {
+		display: none;
+	}
+
+	.forumsearch {
+		#search {
+			@include mb2_border_radius(.2rem 0 0 .2rem);
+			border: 0;
+			margin-right: 0;
+			background-color: rgba(255,255,255,.78);
+		}
+	}
+
+	/* Hide serach form in Moodle 4.0 */
+	.path-admin.css_6wum & {
+		.simplesearchform {
+			display: none !important;
+		}
+	}
+
+	#region-main-settings-menu {
+		position: relative;
+	  	width: auto;
+	  	padding: 0;
+	  	margin: 0;
+	  	float: right;
+
+		> div {
+			position: relative;
+		}
+
+		.action-menu {
+		  margin: 0;
+
+		  .dropdown-toggle {
+		  	  border: 0;
+		  	  padding: 0;
+		  	  margin: 0;
+			  color: #000;
+			  @include mb2_box_shadow_none();
+
+			  &::after {
+			  	  display: none;
+			  }
+
+			  i {
+			  	  font-size: 1rem;
+			  	}
+		  	}
+		}
+
+		@media only screen and (max-width:768px){
+			float: none;
+
+			.action-menu {
+				float: none;
+			}
+
+			.menubar {
+				justify-content: center;
+			}
+
+		}
+	}
+}
+
+@media only screen and (max-width: $wmediumdevice){
+
+	.theme-page-heading {
+
+		padding: .5rem 0;
+
+	}
+
+
+	.page-heading-left,
+	.page-heading-right {
+		float: none;
+		text-align: center;
+		padding: .28rem 0;
+
+	}
+
+}

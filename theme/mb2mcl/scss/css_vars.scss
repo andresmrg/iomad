@@ -1,0 +1,21 @@
+
+:root {   
+
+    // Font icons
+    --fa-style-family__theme: 'FontAwesome';
+    --fa-style-style__theme: normal;
+    --fa-style-variant__theme: normal;
+    --fa-style-weight__theme: normal;
+    --fa-style-size__theme: inherit;
+    --fa-style-lineheight__theme: 1; 
+
+}
+
+/* ======================= VARIABLES FOR MOODLE 4.2+ */
+
+// Font Awesome style
+.css_hy9f {
+    --fa-style-family__theme: 'Font Awesome 6 Free';
+    --fa-style-weight__theme: 900;
+    --fa-style-size__theme: 14px;
+}

@@ -1,0 +1,160 @@
+
+
+.maincalendar  {
+
+	.path-calendar & {
+
+
+		.bottom {
+			padding-top: 1.3rem;
+		}
+
+
+		.calendarmonth {
+
+			font-size: $fssmall;
+
+			th,
+			td {
+				border-color: $color_border;
+				border-style: solid;
+				padding: .22rem;
+				text-align: center !important;
+
+				&.dayblank {
+					background-image: url([[pix:theme|svg/strip1_black8]]);
+				}
+
+				&.clickable {
+					@include mb2_transition1(all, .15s);
+
+					&:hover {
+						@include mb2_box_shadow(0 0 20px, rgba(0,0,0,.15));
+						background-color: #fff;
+					}
+				}
+
+				li[data-region="event-item"] {
+					padding-bottom: 0;
+
+					a {
+						color: inherit;
+						text-decoration: none !important;
+
+						.eventname {
+							font-weight: $fwheadings;
+							color: $headingscolor;
+						}
+
+						.badge {
+							position: relative;
+							top: -.08rem;
+						}
+					}
+				}
+
+				a[data-action="view-day-link"] {
+					color: inherit;
+					display: block;
+					background-color: lighten($color_gray2,2%);
+				    background-image: url([[pix:theme|svg/strip1_black8_4]]);
+					border: solid 1px rgba(0,0,0,.01);
+					margin-bottom: .45rem;
+					font-weight: $fwheadings;
+					color: $headingscolor;
+				}
+			}
+		}
+	}
+
+
+	.calendarwrapper {
+
+		> .header {
+			@include mb2_custom_header();
+		}
+
+		> .controls {
+			@include clearfix();
+			margin: 1.6rem auto;
+			padding: .4rem 0;
+			border-top: solid 1px rgba(0,0,0,.1);
+			border-bottom: solid 1px rgba(0,0,0,.1);
+
+			.calendar-controls {
+				.current {
+					margin: 0 !important;
+					font-size: $fsheading4;
+					color: $headingscolor;
+				}
+
+				.arrow_link {
+					color: inherit;
+
+					.arrow {
+						font-size: .7rem;
+						position: relative;
+						top: -.2rem;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+
+
+
+@media only screen and (max-width: $wmediumdevice){
+
+	.maincalendar  {
+		.calendarwrapper {
+			> .controls {
+				.calendar-controls {
+					.current {
+						font-size: $fsgeneral;
+					}
+				}
+			}
+
+		}
+	}
+
+}
+
+
+@media only screen and (max-width: 630px){
+
+	.maincalendar  {
+		.calendarwrapper {
+
+			> .header {
+
+				text-align: center;
+
+				.btn {
+					float: none !important;
+					display: block;
+					margin: .5rem auto 0 auto;
+				}
+			}
+		}
+	}
+
+}
+
+
+.maincalendar {
+	.eventlist {
+		.card-header {
+			.mt-1 {
+				.icon {
+					position: relative;
+					top: -.2rem;
+					margin-right: .1rem;
+				}
+			}
+		}
+	}
+}

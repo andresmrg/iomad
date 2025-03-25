@@ -1,0 +1,61 @@
+/* Embed video  */
+
+.embed-responsive-wrap {
+	position: relative;
+	overflow: hidden;
+
+
+	&.isimage {
+		background-color: #000;
+	}
+}
+
+
+
+
+/* Video background */
+
+.embed-video-bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	z-index: 1;
+	@include mb2_transition1(all, .25s);
+}
+
+
+.embed-responsive-wrap:hover .embed-video-bg {
+	@include mb2_trabsform_scale(1.05);
+}
+
+
+
+.embed-responsive-wrap i {
+	display: block;
+	width: 74px;
+	height: 74px;
+	text-align: center;
+	line-height: 64px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -37px;
+	margin-top: -37px;
+	color: #fff;
+	text-indent: 3px;
+	border: solid 7px rgba(255,255,255,.4);
+	font-size: 18px;
+	z-index: 2;
+	cursor: pointer;
+	@include mb2_border_radius(999px);
+}
+
+
+video {
+	max-width: 100%;
+}

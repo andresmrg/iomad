@@ -1,0 +1,343 @@
+
+$login_form_width: 600px;
+
+/* General style for login form */
+
+.theme-loginform {
+    position: absolute;
+    top: 100%;
+    margin-top: -.7rem;
+    right: .74rem;
+    z-index: 100;
+    width: $login_form_width;
+    background-color: $color_gray4;
+    padding: 0 15px;
+
+    .text-separator {
+        margin: 1rem 0;
+    }
+
+    &.nologinlinks {
+        width: ($login_form_width / 2);
+    }
+
+    .login-info {
+        font-size: $fssmall;
+        line-height: $fssmall_lh;
+        padding: 0 .2rem;
+
+        a {
+            color: inherit;
+
+            &:hover,
+            &:focus {
+                color: $linkcolor;
+            }
+        }
+    }
+
+    .potentialidps {
+        .potentialidplist {
+            >div {
+
+                display: block;
+                margin: 0 0 15px 0;
+
+                .btn {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        border: solid 2rem transparent;
+        border-right-color: $color_gray4;
+        position: absolute;
+        top: -.9rem;
+        right: 0;
+    }
+}
+
+.searchform-close,
+.loginform-close {
+    position: absolute;
+    right: .7rem;
+    top: .7rem;
+    font-size: 1.35rem;
+    color: $accent1 !important;
+    z-index: 1;
+}
+
+
+@media only screen and ( max-width: $wmediumdevice ) {
+    .theme-loginform {
+        width: ($login_form_width / 2);
+        right: auto;
+        left: 50%;
+        margin-left: ($login_form_width / 4) * -1;
+        margin-top: 0;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+
+@media only screen and (max-width: ($login_form_width / 2) + 30) {
+    .theme-loginform {
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/* Columns width dark color and strips background */
+
+.col-loginlinks,
+.col-loginusermenu {
+    background-color: $accent1;
+    color: #fff;
+    padding-top: 1.7rem;
+}
+
+
+/* login links container */
+
+.col-loginlinks {
+
+    .theme-static-content {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+            a {
+                $icon_size: 2.2rem;
+
+                color: #fff;
+                position: relative;
+                display: table;
+                min-height: $icon_size;
+                padding-left: $icon_size + 1;
+                margin-bottom: 1.7rem;
+                @include mb2_transition1(all, .25s);
+
+                &:hover,
+                &:focus {
+                    color: inherit;
+                }
+
+                .static-icon {
+                    position: absolute;
+                    display: block;
+                    width: $icon_size;
+                    height: $icon_size;
+                    line-height: $icon_size;
+                    font-size: 1.6rem;
+                    text-align: center;
+                    left: 0;
+                    top: 50%;
+                    margin-top: $icon_size * .5 *-1;
+                }
+
+                .text {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+    }
+}
+
+
+@media only screen and (max-width: $wmediumdevice) {
+
+    .col-loginlinks {
+        order: 2;
+    }
+
+}
+
+
+
+
+/* login form */
+
+#header-form-login {
+
+    padding: 3.5rem .2rem 0 .2rem;
+
+    .form-field {
+
+        $field_height: 2.1rem;
+
+        position: relative;
+        margin-bottom: 1.35rem;
+
+        label {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: block;
+            font-size: 20px;
+            width: $field_height;
+            height: $field_height;
+            text-align: center;
+            line-height: $field_height;
+            color: $accent2;
+        }
+
+        input {
+            border: 0;
+            width: 100%;
+            height: $field_height;
+            padding: 0 .4rem;
+            padding-right: $field_height;
+            color: inherit;
+            color: $textcolor;
+
+            &::placeholder {
+                color: $textcolor;
+                opacity: 1;
+            }
+        }
+    }
+
+    button {
+        margin-bottom: .9rem;
+        @include button-variant($accent2, $accent2);
+        color: #fff !important;
+    }
+}
+
+
+
+
+/* User menu and user details on logged in */
+
+.col-loginusermenu {
+
+    font-size: $fssmall;
+
+    .dropdown-toggle {
+        display: none !important;
+    }
+
+    .action-menu {
+        white-space: normal;
+    }
+
+    .action-menu-trigger {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        display: block!important;
+        background-color: transparent;
+        border: 0;
+        float: none;
+        color: inherit;
+        padding: 0;
+        margin: 0 0 1.3rem 0;
+
+        a {
+            display: inline-block;
+            font-weight: inherit;
+            font-size: inherit;
+            width: auto;
+            height: auto;
+            color: inherit;
+            padding: 0 .2rem;
+            background-color: transparent !important;
+            @include mb2_transition1(all, .15s);
+
+            &:hover,
+            &:focus {
+                color: #fff;
+            }
+
+            i {
+                display: none;
+            }
+        }
+
+        .dropdown-divider {
+            border-top-color: rgba(255,255,255,.08);
+        }
+
+    }
+
+}
+
+@media only screen and (max-width: $wmediumdevice) {
+
+    .col-loginusermenu {
+        order: 2;
+
+        .col-inner {
+            padding-top: 0;
+        }
+
+        .dropdown-menu {
+            text-align: center;
+        }
+    }
+
+}
+
+.col-loginuserdetails {
+    text-align: center;
+    font-size: $fssmall;
+
+    p {
+        margin-bottom: .5rem;
+        line-height: 1.4rem;
+    }
+
+    .col-inner {
+        padding: 1.1rem 0;
+    }
+
+    .usertext {
+        display: none;
+    }
+
+    .welcome_userpicture {
+        @include mb2_border_radius(50%);
+        width: 4.8rem;
+        max-width: 100%;
+        border: solid .25rem rgba(0,0,0,.18);
+        margin-bottom: .4rem;
+    }
+
+    .userinitials {
+        width: 5.6rem;
+        height: 5.6rem;
+        border: solid .25rem rgba(0,0,0,.18);
+        margin-bottom: .4rem;
+    }
+
+    .loggedinas {
+        span {
+            display: block;
+        }
+    }
+
+    .btn {
+        margin: .3rem 0;
+    }
+}
+
+.col-loginform {
+    .col-inner {
+        padding-bottom: 1rem;
+    }
+}

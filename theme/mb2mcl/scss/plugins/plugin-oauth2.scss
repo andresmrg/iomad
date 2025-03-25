@@ -1,0 +1,79 @@
+
+
+
+/* ============================= BUTTON IMAGES */
+
+$socbtnsize: 35px;
+
+.btn-socimage {
+    display: flex;
+    flex-flow: row;
+    padding: 0;
+    align-items: center;
+    border: solid 1px transparent;
+
+
+	.btn-image {
+	    display: 0 0 $socbtnsize;
+	    flex: 0 0 $socbtnsize;
+	    height: $socbtnsize;
+		background-color: rgba(255,255,255,.11);
+	    padding: 0;
+	    border-radius: .1rem;
+
+		img {
+		    margin: 0 !important;
+		    height: $socbtnsize;
+		    width: auto !important;
+		    padding: 5px;
+		}
+	}
+
+	.btn-text {
+	    flex: 0 0 calc(100% - 36px);
+		padding-left: .8rem;
+        padding-right: .8rem;
+		text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+	}
+
+	&.btn-Google {
+		.btn-image {
+			background-color: #fff;
+		}
+	}
+}
+
+
+/* OAuth2 buttons */
+.btn-Microsoft {
+	@include button-variant($color_microsoft, $color_microsoft);
+}
+
+.btn-Google {
+	@include button-variant($color_google, $color_google);
+}
+
+.btn-Facebook {
+	@include button-variant($color_facebook, $color_facebook);
+}
+
+.btn-Twitter {
+	@include button-variant($color_twitter, $color_twitter);
+}
+
+.btn-Linkedin {
+	@include button-variant($color_linkedin, $color_linkedin);
+}
+
+.btn-Openid {
+	@include button-variant($color_openid, $color_openid);
+	color: #fff !important;
+}
+
+.btn-Nextcloud {
+	@include button-variant($color_nextcloud, $color_nextcloud);
+	color: #fff !important;
+}

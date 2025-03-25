@@ -1,0 +1,58 @@
+
+.bg-secondary {
+	background-color: $color_gray2 !important;
+}
+
+.small {
+	font-size: $fssmall !important;
+}
+
+.text-muted {
+	color: $textcolor_lighten !important;
+}
+
+.text-primary {
+	color: $accent1;
+}
+
+.rounded-circle {
+	min-width: inherit;
+}
+
+.hidden {
+	display: none;
+
+	&.btn {
+		display: none;
+	}
+}
+
+.small,
+small {
+	font-size: $fssmall !important;
+}
+
+
+.badge-info {
+	background-color: $color_info;
+}
+
+
+a.dimmed,
+a.dimmed:link,
+a.dimmed:visited,
+a.dimmed_text,
+a.dimmed_text:link,
+a.dimmed_text:visited,
+.dimmed_text,
+.dimmed_text a,
+.dimmed_text a:link,
+.dimmed_text a:visited,
+.usersuspended,
+.usersuspended a,
+.usersuspended a:link,
+.usersuspended a:visited,
+.dimmed_category,
+.dimmed_category a {
+	color: $textcolor_lighten !important;
+}

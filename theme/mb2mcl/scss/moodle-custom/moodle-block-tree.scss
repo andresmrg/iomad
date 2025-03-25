@@ -1,0 +1,50 @@
+
+
+.block_tree {
+
+	&.list {
+		margin-top: -.66rem;
+	}
+
+	p {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	ul {
+	    padding-left: .85rem
+	}
+
+	a {
+		color: $textcolor;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+		}
+	}
+
+	li {
+		padding: .2rem 0 !important;
+	}
+
+
+	/* Hide empty icons */
+
+	[class="icon fa fa-fw fa-fw navicon"],
+ 	[class="icon fa fa-fw fa-fw "] {
+    	display: none
+	}
+
+	.hasicon {
+		img {
+			margin-left: -2px !important;
+    		margin-right: 4px !important;
+		}
+
+		.icon {
+			font-size: .85rem;
+		}
+	}
+
+}

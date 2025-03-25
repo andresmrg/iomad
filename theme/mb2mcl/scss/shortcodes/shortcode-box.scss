@@ -1,0 +1,101 @@
+
+.theme-cols {
+	.no-overflow & {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+.theme-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+
+	&.gutter-small {
+		margin-left: -10px;
+		margin-right: -10px;
+	}
+
+	&.gutter-0 {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.no-overflow & {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+.theme-box {
+	position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+	margin-bottom: 30px;
+
+	&.boxicon,
+	&.boxcontent {
+		margin-bottom: 2rem;
+	}
+
+	.gutter-small & {
+		padding-left: 10px;
+		padding-right: 10px;
+		margin-bottom: 20px;
+	}
+
+	.gutter-0 & {
+		padding-left: 0;
+		padding-right: 0;
+		margin-bottom: 0;
+	}
+
+	.col-1 & {
+		float: none;
+	}
+}
+
+
+.theme-col-1 .theme-box {	flex: 0 0 100%; max-width: 100%; }
+.theme-col-2 .theme-box {	flex: 0 0 50%; max-width: 50%;	}
+.theme-col-3 .theme-box {	flex: 0 0 33.3333333333%; max-width: 33.3333333333%; }
+.theme-col-4 .theme-box {	flex: 0 0 25%; max-width: 25%;	}
+.theme-col-5 .theme-box {	flex: 0 0 20%; max-width: 20%;	}
+
+
+@media only screen and (max-width: $wmediumdevice){
+
+	.theme-col-2,
+	.theme-col-3,
+	.theme-col-4,
+	.theme-col-5 {
+		.theme-box {
+			flex: 0 0 50%; max-width: 50%;
+		}
+	}
+
+}
+
+
+
+@media only screen and (max-width: $wxsmalldevice){
+
+	.theme-col-2,
+	.theme-col-3,
+	.theme-col-4,
+	.theme-col-5 {
+		.theme-box {
+			flex: 0 0 100%; max-width: 100%;
+		}
+	}
+
+}
+
+
+.theme-box > a {
+	display: block;
+	text-decoration: none !important;
+	color: inherit;
+}

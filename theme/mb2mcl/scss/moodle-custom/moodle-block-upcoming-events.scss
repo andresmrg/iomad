@@ -1,0 +1,45 @@
+
+
+.block_calendar_upcoming {
+
+	.event {
+
+		a[data-type="event"] {
+			color: $headingscolor;
+			font-weight: $fwheadings;
+
+			&:hover,
+			&:focus {
+				color: $linkcolor;
+			}
+		}
+
+		.icon {
+			margin-right: 0;
+		}
+
+		.date {
+			font-size: $fssmall;
+			color: $textcolor_lighten;
+
+			a {
+				color: $textcolor;
+
+				&:hover,
+				&:focus {
+					color: $linkcolor;
+				}
+			}
+
+		}
+	}
+
+	hr {
+		margin-top: .5rem;
+		margin-bottom: .5rem;
+	}
+
+	.footer {
+		font-size: $fssmall;
+	}
+}

@@ -1,0 +1,14 @@
+
+
+.aalink,
+#page-footer a:not([class]),
+.arrow_link,
+a:not([class]),
+.activityinstance > a {
+    &.focus,
+    &:focus {
+		color: initial;
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

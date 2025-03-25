@@ -1,0 +1,288 @@
+
+.format-grid {
+	.course-content {
+
+		.gridicon_link {
+			cursor: pointer;
+			position: relative;
+			display: block;
+			overflow: hidden;
+
+			.tooltip {
+				font-size: $fssmall;
+
+				&.top {
+					.tooltip-arrow {
+						 border-top-color: $accent2!important;
+					}
+				}
+
+				&.bottom {
+					.tooltip-arrow {
+						 border-bottom-color: $accent2!important;
+					}
+				}
+
+				&.left {
+					.tooltip-arrow {
+						 border-left-color: $accent2!important;
+					}
+				}
+
+				&.right {
+					.tooltip-arrow {
+						 border-right-color: $accent2!important;
+					}
+				}
+
+				.tooltip-inner {
+					padding: 15px;
+					background-color: $accent2;
+					color: #fff;
+				}
+			}
+
+		}
+
+
+		ul {
+			&.gridicons {
+
+
+				li {
+
+					.image_holder {
+						background-color: transparent;
+						border: 0;
+						background-image: url([[pix:theme|course-default]]);
+						background-position: 50% 50%;
+						background-repeat: no-repeat;
+						background-size: cover;
+						overflow: hidden;
+						@include mb2_border_radius(0);
+
+						img {
+							@include mb2_transition1(all, .25s);
+						}
+
+						.tooltip {
+
+							.tooltip-inner {
+								background-color: rgba($accent2, .7) !important;
+								color: #fff !important;
+							}
+							.tooltip-arrow {
+								border-top-color: rgba($accent2, .7) !important;
+							}
+						}
+
+					}
+
+					.icon_content {
+						width: 100%;
+						height: auto;
+						position: absolute;
+						display: block;
+						margin: 0;
+						padding: 13px 10px;
+						background-color: rgba($accent1, .7) !important;
+						color: #fff !important;
+						font-weight: $fwheadings;
+						z-index: 1;
+						font-size: $fsheading4;
+						left: 0;
+						bottom: 0;
+						opacity: 1 !important;
+
+						&.content_inside {
+							height: auto !important;
+						}
+					}
+
+					&:hover {
+						.image_holder {
+							img {
+								@include mb2_transform_scale(1.1);
+							}
+						}
+					}
+
+					&.currentselected {
+						background-color: transparent;
+						opacity: 1;
+
+						.icon_content {
+							color: #fff;
+							background-color: rgba($accent3,.7);
+						}
+					}
+
+
+					&:hover {
+						border: 0;
+
+						.image_holder {
+							@include mb2_box_shadow(0 0 0 0, transparent);
+						}
+					}
+
+
+
+				}
+			}
+		}
+	}
+
+
+	#gridshadebox_content {
+		border: 0;
+
+		ul {
+			&.gtopics {
+				margin-left: 30px;
+				margin-right: 30px;
+			}
+		}
+
+		.activity {
+
+			border: 0;
+			padding: 4px 0;
+			margin: 5px 0;
+
+			.activityinstance > a {
+				color: $textcolor;
+
+				&:hover,
+				&:focus {
+					color: $linkcolor;
+				}
+			}
+
+			&:hover {
+				background-color: rgba(0,0,0,.04);
+			}
+
+
+			&.modtype_label {
+				&:hover {
+					background-color: transparent;
+				}
+			}
+		}
+
+
+	}
+
+
+	&.editing {
+		#gridshadebox_content {
+			&:after {
+				display: none;
+			}
+		}
+	}
+
+	/* Remove stupid cursors */
+
+	div#gridshadebox_overlay {
+		cursor: auto;
+		z-index: 999;
+	}
+
+
+	#gridshadebox_close,
+	.gridshadebox_right_area,
+	.gridshadebox_left_area,
+	.gridshadebox_next_area.ltr,
+	.gridshadebox_next_area.rtl,
+	.gridshadebox_previous_area.rtl,
+	.gridshadebox_previous_area.ltr {
+		cursor: pointer;
+	}
+
+
+	/* Navigation */
+
+	.gridshadebox_right_area,
+	.gridshadebox_left_area,
+	.gridshadebox_next_area.ltr,
+	.gridshadebox_next_area.rtl,
+	.gridshadebox_previous_area.rtl,
+	.gridshadebox_previous_area.ltr {
+
+		width: 38px;
+		height: 38px;
+		top: 50%;
+		margin-top: -19px;
+		background-color: $accent1;
+
+		&:before {
+			@include mb2_font_fa();
+			display: block;
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			line-height: 38px;
+			text-align: center;
+			top: 50%;
+			margin-top: -19px;
+			left: 0;
+			font-size: 24px;
+			color: rgba(255,255,255,.8);
+			@include mb2_transition1(all, .15s);
+		}
+
+		&:hover {
+			&:before {
+				color: #fff;
+			}
+		}
+
+		img {
+			display: none;
+		}
+	}
+
+
+	.gridshadebox_right_area,
+	.gridshadebox_next_area.ltr,
+	.gridshadebox_next_area.rtl
+	 {
+		right: -19px;
+		&:before {
+			content: '\f105';
+		}
+	}
+
+	.gridshadebox_next_area.rtl {
+		&:before {
+			content: '\f104';
+		}
+	}
+
+	.gridshadebox_left_area,
+	.gridshadebox_previous_area.ltr,
+	.gridshadebox_previous_area.rtl {
+		left: -19px;
+		&:before {
+			content: '\f104';
+		}
+	}
+
+	.gridshadebox_previous_area.rtl {
+		&:before {
+			content: '\f105';
+		}
+	}
+
+
+	#gridshadebox_close {
+		top: 5px;
+		right: 5px;
+		width: 31px;
+		height: 31px;
+		opacity: 0;
+	}
+
+}

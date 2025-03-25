@@ -1,0 +1,66 @@
+
+
+@mixin mb2_switch_checkbox($coloroff, $coloron)
+{
+
+    input {
+        + label {
+            &:before {
+                background-color: $coloroff;
+                border-color: $coloroff;
+            }
+
+            &:after {
+                background-color: #fff;
+            }
+        }
+
+        &:checked {
+            + label {
+                &:before {
+                    background-color: $coloron;
+                    border-color: $coloron;
+                }
+
+                &:after {
+                    background-color: rgba(255,255,255,.85);
+                }
+            }
+
+            &:focus {
+                + label {
+                    &:before {
+                        @include mb2_box_shadow(0 0 0 .2rem, rgba($coloron, .25));
+                    }
+                }
+            }
+        }
+
+        &:focus {
+            + label {
+                &:before {
+                    @include mb2_box_shadow(0 0 0 .2rem, rgba($coloroff, .25));
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+@mixin mb2_input_autofill_bg($bgcolor, $color)
+{
+
+    input:-webkit-autofill,
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:active,
+	input:-webkit-autofill:focus {
+		background-color: $bgcolor !important;
+		color: $color !important;
+		-webkit-box-shadow: 0 0 0 1000px $bgcolor inset !important;
+		-webkit-text-fill-color: $color !important;
+    }
+
+}

@@ -1,0 +1,33 @@
+
+[data-region=right-hand-drawer].drawer { /* For Moodle 3.8  */
+	top: 0 !important;
+	height: 100% !important;
+}
+
+.mb2-message-drawer {
+	top: 0 !important;
+	height: 100% !important;
+
+	.drawer-top {
+		background-color: $color_gray2;
+		background-image: url([[pix:theme|svg/strip1_black8]]);
+		@include clearfix();
+		border-bottom: solid 1px $color_border;
+		padding: .25rem;
+
+		> a {
+			float: right;
+			margin-right: .35rem;
+		}
+	}
+
+
+	#page & {
+		@include mb2_box_shadow(0 0 0, rgba(0,0,0,0));
+
+		&[aria-expanded="true"]	{
+			@include mb2_box_shadow(-3px 0 4px, rgba(0,0,0,.15));
+		}
+	}
+
+}

@@ -1,0 +1,532 @@
+#gridshadebox_content,
+.course-content {
+
+	#gridmiddle-column {
+		line-height: inherit !important;
+	}
+
+	ul {
+
+		&.buttons {
+			ul {
+				&.section {
+					margin: 0;
+					padding: 0;
+
+					li {
+						&.activity {
+							.activityinstance {
+								a {
+									color: inherit;
+								}
+							}
+
+						&:not(.subsection):hover {
+								background-color: rgba(0,0,0,.04);
+
+								.activityinstance {
+									a {
+										color: $linkcolor;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+		&.weeks,
+		&.topics,
+		&.ctopics,
+		&.gtopics,
+		&.buttons {
+			margin: 0;
+			padding: 0;
+
+
+			li.section,
+			#section-0 {
+
+				.content:not(.activityiconcontainer) {
+					margin: 0;
+					padding: 0;
+				}
+
+				&.main:not(.section-summary) {
+					border-bottom: 0;
+				}
+
+				.summary {
+					margin-left: 0;
+				}
+
+				.description {
+
+					.course-description-item {
+						font-size: $fssmall;
+						background-color: lighten($color_gray2, 2.4%);
+					}
+
+				}
+
+				.activity-item {
+					.course-description-item {
+						background-color: transparent;
+					}
+				}
+
+			}
+
+			> li {
+
+
+				&.hidden {
+					opacity: .5;
+				}
+
+				.content {
+
+					ul {
+						&.section {
+							margin-left: 0;
+							margin-right: 0;
+							padding: 0;
+
+							li {
+								&.activity {
+									@include mb2_transition1(all, .15s);
+									margin-top: .7rem;
+									margin-bottom: .7rem;
+
+									&.hasinfo {
+										border: 0;
+										padding-top: 0;
+										padding-bottom: 0;
+									}
+
+									.activityicon {
+										margin-right: .85rem;
+										position: relative;
+										top: -.1rem;
+									}
+
+									> div {
+										padding: 0;
+									}
+
+									.activityinstance {
+										a {
+											color: inherit;
+										}
+									}
+
+									.contentafterlink {
+									    margin-top: 0;
+									    font-size: $fssmall;
+									    color: $textcolor_lighten;
+
+										p {
+											margin-top: 0;
+										}
+									}
+
+									&:not(.subsection):hover {
+										background-color: rgba(0,0,0,.04);
+
+										.activityinstance {
+											a {
+												color: $linkcolor;
+											}
+										}
+									}
+
+									&.modtype_label {
+
+										padding-left: 0;
+										padding-right: 0;
+
+										&:hover {
+											background-color: transparent;
+										}
+									}
+
+
+									/* Moodle 4 */
+
+									.activity-item {
+										border: 0;
+										background-color: transparent;
+
+										.activitytitle {
+											//.media-body {
+												.text-uppercase {
+													@include mb2_sronly();
+												}
+
+												.activityname {
+													a {
+														color: $textcolor;
+													}
+												}
+											//}
+
+											.activityiconcontainer {
+												padding: .475rem;
+												width: 30px;
+												height: 30px;
+												@include mb2_border_radius(.15rem);
+											}
+										}
+
+
+										/* Description */
+										.description {
+											.course-description-item {
+												padding: 0;
+												padding-left: calc(30px + 1rem);
+												background-color: transparent;
+												margin-top: .4rem;
+												color: $textcolor_lighten;
+											}
+										}
+									}
+
+
+
+									/* ==================== SUBSECTION */
+
+									&.subsection {
+										.sectionname {
+											margin-top: 0;
+											margin-bottom: 0;
+											background-color: transparent;
+											padding: 0;
+											font-size: $fsheading6;
+											box-shadow: none;
+											border: 0;
+										}
+
+										.section {
+											.section-item {
+												padding: 0;
+											}
+										}
+
+										[data-for="sectiontoggler"].btn-icon {
+											width: 31px;
+											height: 31px;
+											line-height: 1;
+										}
+									}
+
+								}
+							}
+						}
+					}
+
+					span.the_toggle > h3, // Require for topcoll format in ipad
+					a.the_toggle > h3, // Require for topcoll format in ipad
+					.sectionname,
+					.section-title /* Require for topcoll course filter */ {
+
+						@include mb2_course_section();
+
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+
+	.editing & {
+		ul {
+			li {
+				&.modtype_label {
+					> div {
+						padding-top: 2rem !important;
+					}
+				}
+			}
+		}
+	}
+
+	.section-summary {
+		border-color: rgba(0,0,0,.1);
+
+		.section-summary-activities {
+
+			.activity-count {
+				font-size: $fssmall;
+				color: $textcolor_lighten;
+			}
+
+		}
+	}
+
+
+
+
+
+	/* MOODLE 4: ACTIVITY ICON */
+	.css_6wum & {
+		ul {
+			&.mb2sections0,
+			&.weeks,
+			&.topics,
+			&.ctopics,
+			&.gtopics,
+			&.buttons,
+			&.mb2sections {
+				> li {
+
+					padding-top: 1rem;
+					padding-bottom: 1rem;
+
+					.content {
+						ul {
+							&.section {
+								li {
+									.activityicon {
+										margin-right: 0;
+										top: 0;
+									}
+								}
+							}
+						}
+					}
+
+					/* ==================== SECTION HEADER */
+
+					.course-section-header {
+
+						@include mb2_course_section();
+						padding: .32rem 1rem .32rem .55rem;
+
+						.sectionname {
+							font-size: $fsheading4;
+							display: flex;
+							align-items: center;
+						}
+
+						.btn-icon {
+							@include mb2_btn_moodle_icon();
+							background-color: rgba(0,0,0,.05);
+						}
+
+						.section-collapsemenu {
+						   margin-top: -.2rem;
+						   font-size: $fssmall;
+						   color: $textcolor;
+						   @include mb2_box_shadow_none();
+
+						   &:hover,
+						   &:focus {
+							   color: $textcolor;
+						   }
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+}
+
+
+.section {
+	.activity {
+		&.modtype_label {
+			&.label {
+				font-weight: inherit;
+				padding: 0;
+
+				.mod-indent-outer {
+					padding-left: 0;
+				}
+
+				.contentwithoutlink {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}
+
+
+.section_availability {
+	&:empty {
+		display: none;
+	}
+
+	.css_6wum & {
+		margin: 0;
+	}
+}
+
+
+.path-course-view {
+	.completionprogress {
+		float: none;
+		font-size: $fssmall;
+		color: $textcolor_lighten;
+		margin: .5rem 0 1.5rem 0;
+	}
+}
+
+
+
+.section-modchooser-link.btn.btn-link {
+    border: solid 1px $color_success !important;
+    //font-size: $fssmall;
+	color: $color_success !important;
+	padding: .4rem !important;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color_success !important;
+	}
+
+	i {
+	    font-size: inherit;
+	}
+}
+
+.path-mod div.activity-information {
+	border: 0;
+}
+
+.isguestuser {
+	.activity-information {
+		display: none;
+	}
+}
+
+.editing_move_activity {
+	z-index: 1;
+}
+
+.css_6wum {
+	.course-content {
+		.section  {
+			&.dropready {
+				li {
+					&.activity.dropready.drop-up {
+						border-top: 1px solid #1d2125 !important;
+					    margin-top: -1px !important;
+					}
+				}
+			}
+		}
+
+	}
+
+	.activityiconcontainer {
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.course-section-header {
+		.sectionname {
+			margin-bottom: 0;
+		}
+	}
+}
+
+
+
+
+
+// Moodle 4.3
+
+.css_31a2 {
+	.activityiconcontainer {
+		border: 0;
+		padding: .428rem;
+		width: 30px;
+		height: 30px;
+		@include mb2_border_radius(.15rem);
+		line-height: 1;
+		
+		.activityicon  {
+			width: 1.18rem;
+			height: 1.18rem;
+		}
+	}
+}
+
+// Activity colors
+
+.activityiconcontainer {
+
+	&.content {
+		background-color: rgba($ccolor_content, .15);
+
+		.activityicon:not(.nofilter), 
+		.icon:not(.nofilter) {
+			filter: invert(20%) sepia(100%) saturate(2525%) hue-rotate(239deg) brightness(82%) contrast(93%) !important;
+		}
+	}
+
+	&.assessment {
+		background-color: rgba($ccolor_assessment, .15);
+
+		.activityicon:not(.nofilter), 
+		.icon:not(.nofilter) {
+			filter: invert(17%) sepia(32%) saturate(7020%) hue-rotate(328deg) brightness(101%) contrast(99%) !important;
+		}
+	}
+
+	&.collaboration,
+	&.interactivecontent {
+		background-color: rgba($ccolor_collaboration, .15);
+
+		.activityicon:not(.nofilter), 
+		.icon:not(.nofilter) {
+			filter: invert(35%) sepia(91%) saturate(3399%) hue-rotate(1deg) brightness(102%) contrast(105%) !important;
+		}
+	}
+
+	&.communication {
+		background-color: rgba($ccolor_communication, .15);
+
+		.activityicon:not(.nofilter), 
+		.icon:not(.nofilter) {
+			filter: invert(33%) sepia(100%) saturate(333%) hue-rotate(124deg) brightness(97%) contrast(95%) !important;
+		}
+	}
+
+	&.administration {
+		background-color: rgba($ccolor_administration, .15);
+
+		.activityicon:not(.nofilter), 
+		.icon:not(.nofilter) {
+			filter: invert(14%) sepia(14%) saturate(2004%) hue-rotate(165deg) brightness(96%) contrast(89%) !important;
+		}
+	}
+
+	
+
+}
+
+
+/* MOODLE 4.4. */
+
+.css_af5e {
+	.course-section {
+		.section-item {
+			padding: 0;
+			border: 0;
+		}
+	}
+}

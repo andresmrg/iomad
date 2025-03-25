@@ -1,0 +1,73 @@
+
+$icon_size: 2.4rem;
+
+
+.theme-iconnav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: $icon_size;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 99;
+
+	li {
+
+		position: relative;
+		display: block;
+		width: $icon_size;
+		height: $icon_size;
+		margin: .3rem 0;
+
+        .link-replace {
+			color: inherit;
+			display: block;
+			height: $icon_size;
+			position: absolute;
+			background-color: $color_gray2;
+			padding-left: $icon_size;
+			right: auto;
+			left: auto;
+            @include mb2_border_radius(.28rem 0 0 .28rem);
+
+
+			.static-icon {
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 2;
+                font-size: 1rem;
+				width: $icon_size;
+				height: $icon_size;
+				text-align: center;
+				line-height: $icon_size;
+				background-color: $accent1;
+                color: #fff;
+                @include mb2_border_radius(.28rem 0 0 .28rem);
+			}
+
+			.text {
+				display: block;
+				height: $icon_size;
+				line-height: $icon_size;
+				white-space: nowrap;
+				padding: 0 .65rem;
+			}
+
+		}
+	}
+
+}
+
+
+
+@media only screen and (max-width:768px){
+
+	.theme-iconnav {
+		display: none;
+	}
+
+}

@@ -1,0 +1,89 @@
+
+
+@mixin mb2_font_family($font)
+{
+    @if $font !=0 {
+        font-family: $font, sans-serif;
+    }
+}
+
+
+@mixin mb2_theme_text()
+{
+    font-family: $ffgeneral, sans-serif;
+	font-weight: $fwgeneral;
+}
+
+@mixin mb2_font_fa() {
+	display: inline-block;
+	font-family: var(--fa-style-family__theme);
+	font-style: var(--fa-style-style__theme);
+	font-variant: var(--fa-style-variant__theme);
+	font-weight: var(--fa-style-weight__theme);
+	font-size: var(--fa-style-size__theme);
+	line-height: var(--fa-style-lineheight__theme);
+	
+	/* Better Font Rendering =========== */
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin mb2_font_lineicons() {
+	display: inline-block;
+	font-family: 'LineIcons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin mb2_headings_color ($color)
+{
+    h1,h2,h3,h4,h5,h6 {
+        color: $color;
+    }
+}
+
+
+@mixin mb2_icon_color ($color)
+{
+    i,
+    .icon {
+        color: $color;
+    }
+}
+
+
+
+@mixin mb2_links_color ($color, $hcolor)
+{
+    a:not(.btn) {
+        color: $color;
+
+        &:hover,
+        &:focus {
+            color: $hcolor;
+        }
+    }
+}
+
+
+
+@mixin mb2_link_color_dark()
+{
+    a:not(.btn) {
+        color: $textcolor_footer;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
+    }
+}

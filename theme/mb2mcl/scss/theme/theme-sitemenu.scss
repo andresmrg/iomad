@@ -1,0 +1,128 @@
+
+@media only screen and (min-width: $wmediumdevice) {
+	#site-menu {
+		display: block !important;
+	}
+}
+
+#site-menu {
+	.pagelayout-frontpage & {
+		border-top: solid 1px $color_gray6;
+	}
+}
+
+$showmenubtn_size: 2rem;
+$showmenubtn_width: $showmenubtn_size * 2;
+
+.show-sitemenu {
+	display: none;
+	width: $showmenubtn_width;
+	height: $showmenubtn_size;
+	margin: 0 auto ( $showmenubtn_size * -1 ) auto;
+	@include gradient-y( rgba(255,255,255,0), $color_gray5 );
+	@include mb2_border_radius(0 0 $showmenubtn_width $showmenubtn_width);
+	position: relative;
+	text-align: center;
+	color: inherit !important;
+	font-size: 1.95rem;
+	@include mb2_transition1(all, .15s);
+
+	&:before {
+		@include mb2_font_fa();
+	    content: '\f107';
+		position: relative;
+		top: -.65rem;
+	}
+
+	&.active {
+		&:before {
+		    content: '\f106';
+		}
+	}
+}
+
+@media only screen and (max-width: $wmediumdevice) {
+
+	#site-menu {
+		display: none;
+	}
+
+	.show-sitemenu {
+		display: block;
+		z-index: 2;
+	}
+
+
+}
+
+.site-menu-list {
+
+	$sitemenu_space: .2rem;
+
+	list-style: none;
+	margin: 0 ($sitemenu_space*-1);
+	padding: 1rem 0 0 0;
+	font-size: $fssmall;
+	@include clearfix();
+	white-space: nowrap;
+	overflow-x: auto;
+
+	li {
+		display: inline-block;
+		margin: $sitemenu_space;
+
+		&.item-calendar,
+		&.item-mycourses,
+		&.item-addcourse,
+		&.item-turneditingcourse {
+			a {
+				@include button-variant($color_success, $color_success);
+			}
+		}
+
+		&.item-badges {
+			a {
+				@include button-variant($color_warning, $color_warning);
+				color: #fff !important;
+			}
+		}
+
+		&.item-courses,
+		&.item-editcourse,
+		&.item-editfrontpage {
+			a {
+				@include button-variant($color_info, $color_info);
+			}
+		}
+
+		&.item-coursepanel,
+		&.item-dashboard,
+		&.item-managecoursesandcats {
+			a {
+				@include button-variant($btnprimarycolor, $btnprimarycolor);
+			}
+		}
+
+	}
+
+
+	.grading &,
+	.editing & {
+		li {
+			&.item-turneditingcourse {
+				a {
+					@include button-variant($color_danger, $color_danger);
+				}
+			}
+		}
+	}
+}
+
+
+@media only screen and (max-width: $wmediumdevice) {
+
+	.site-menu-list {
+		padding: 1rem 0;
+	}
+
+}

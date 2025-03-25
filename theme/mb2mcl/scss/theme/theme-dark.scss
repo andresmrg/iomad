@@ -1,0 +1,18 @@
+
+
+.dark,
+.dark1 {
+
+    color: $textcolor_footer;
+
+    a {
+        &:hover,
+        &:focus {
+            color: #fff;
+        }
+    }
+}
+
+.dark {
+    color: #fff;
+}

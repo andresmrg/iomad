@@ -1,0 +1,64 @@
+
+
+.comment-link  {
+	margin-top: 2rem;
+	background-color: $color_gray2;
+	color: $textcolor;
+	font-size: inherit;
+	padding: .4rem;
+
+	i {
+		font-size: 1.2rem;
+		margin-right: 0;
+		position:relative;
+		top: .05rem
+	}
+}
+
+
+.comment-ctrl,
+.comment-list {
+    font-size: $fssmall;
+    line-height: $fssmall_lh;
+}
+
+
+.comment-list {
+    li {
+        background-color: $color_gray2;
+        margin: 1rem 0;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+}
+
+.comment-message {
+
+    .comment-message-meta {
+        color: $textcolor_lighten;
+
+        a {
+            color: inherit;
+
+            &:hover,
+            &:focus {
+                color: $linkcolor;
+            }
+        }
+    }
+
+    .picture {
+        min-width: 1.7rem;
+    }
+
+    .text {
+        margin-top: .4rem;
+    }
+
+}
+
+.comment-delete {
+	a {
+		color: $color_danger !important;
+	}
+}

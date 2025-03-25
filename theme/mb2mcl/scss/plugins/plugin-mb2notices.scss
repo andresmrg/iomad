@@ -1,0 +1,87 @@
+
+.mb2notices-item {
+    text-align: center;
+    padding: .22rem 1rem;
+    color: #fff;
+    position: relative;
+    font-size: $fssmall;
+
+    &.canclose {
+        display: none;
+    }
+
+    &.type-info {
+        background-color: $color_info;
+    }
+
+    &.type-success {
+        background-color: $color_success;
+    }
+
+    &.type-warning {
+        background-color: $color_warning;
+    }
+
+    &.type-danger {
+        background-color: $color_danger;
+    }
+
+    &.type-primary {
+        background-color: $accent1;
+    }
+
+    &.type-secondary {
+        background-color: $accent2;
+    }
+}
+
+
+.mb2notices-title {
+    font-size: 1rem;
+    margin: 0 0 .2rem 0;
+    color: inherit;
+}
+
+.mb2notices-content {
+
+    p {
+        margin: 0;
+    }
+
+    a {
+        color: inherit !important;
+        text-decoration: underline;
+    }
+}
+
+.mb2notices-action-edit {
+    float: right;
+    color: inherit !important;
+    text-decoration: none;
+
+    .canclose & {
+        margin-right: 2rem;
+    }
+}
+
+
+.mb2notices-item-close {
+    position: absolute;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    right: 1rem;
+    top: 50%;
+    margin-top: -1rem;
+    text-decoration: none !important;
+    font-size: 1.2rem;
+    opacity: .5;
+    @include mb2_transition1(all, .15s);
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+    }
+}

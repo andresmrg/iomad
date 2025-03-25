@@ -1,0 +1,158 @@
+
+#main-header {
+	position: relative;
+	top: 0;
+	@include mb2_transition1(all, .28s);
+	z-index: 11;
+
+	.main-header-inner {
+		position: relative;
+		background-color: #fff;
+		margin: 0 auto;
+	}
+
+	&.sticky-header-element {
+	    position: fixed;
+	    left: 0;
+		width: 100%;
+
+		.main-header-inner {
+			box-shadow: 0 2px 3px rgba(0,0,0,.16);
+		}
+	}
+
+
+	.header-color & {
+
+		.main-header-inner {
+			background-color: darken($accent1, 3%);
+		}
+
+		&.sticky-header-element {
+
+			.main-header-inner {
+				 box-shadow: 0 0 0 rgba(0,0,0,0);
+			}
+		}
+	}
+
+
+	.theme-lfx & {
+		&.sticky-header-element {
+			.main-header-inner {
+				box-shadow: 0 2px 0 rgba(0,0,0,.16);
+				width: 95%;
+				max-width: $pagewidth;
+			}
+		}
+	}
+
+	.theme-lfx.header-color & {
+		&.sticky-header-element {
+			.main-header-inner {
+				box-shadow: 0 0 0 rgba(0,0,0,0);
+			}
+		}
+	}
+
+	.page-sidebar-left.sidebar-open & {
+		&.sticky-header-element {
+		    left: $sidebarw;
+		}
+	}
+
+
+	.page-sidebar-right.sidebar-open & {
+		&.sticky-header-element {
+		    left: $sidebarw * -1;
+		}
+	}
+
+	.sticky-header1 & {
+		&.sticky-header-element {
+			top: 0;
+		}
+	}
+
+	.scroll-down.sticky-header2 & {
+		&.sticky-header-element {
+			top: -200px;
+
+			.theme-loginform,
+			.language-list,
+			.theme-searchform {
+			    display: none;
+			}
+		}
+	}
+
+	.scroll-up.sticky-header2 & {
+		&.sticky-header-element {
+			top: 0;
+		}
+	}
+}
+
+.header-a,
+.header-b {
+	display: block;
+	height: 100%;
+}
+
+.header-a {
+	float: left;
+}
+
+.header-b {
+	float: right;
+}
+
+
+.main-logo {
+
+	#main-header & {
+		float: left;
+		margin-top: $logomtb;
+		margin-bottom: $logomtb;
+
+		img {
+			max-height: $logoh;
+		}
+
+	}
+
+	max-width: calc(100% - 3.1rem);
+}
+
+
+@media only screen and (max-width: $reswheadertools2) {
+
+	.main-logo {
+		margin-bottom: 1.35rem;
+
+		#main-header & {
+			float: none;
+			max-width: calc( 100% - 3.6rem );
+		}
+	}
+
+	.header-b,
+	.header-a {
+		@include clearfix();
+		width: 100%;
+		float: none;
+		height: auto;
+	}
+
+	.header-b {
+		width: auto;
+		margin: 0 -15px;
+		background-color: $color_gray2;
+
+		.theme-lfx & {
+			margin: 0 -30px;
+		}
+	}
+
+
+}

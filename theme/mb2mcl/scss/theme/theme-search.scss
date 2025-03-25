@@ -1,0 +1,163 @@
+
+$search_form_width: 370px;
+
+
+.theme-searchform {
+    position: absolute;
+    top: 100%;
+    margin-top: -.7rem;
+    right: .74rem;
+    z-index: 100;
+    width: $search_form_width;
+    background-color: $color_gray4;
+
+    .switch {
+        @include mb2_switch_checkbox($accent1, $accent2);
+
+        label {
+            margin-bottom: 0;
+            font-size: $fssmall;
+        }
+    }
+
+
+    &:before {
+        content: '';
+        display: block;
+        border: solid 2rem transparent;
+        border-right-color: $color_gray4;
+        position: absolute;
+        top: -.9rem;
+        right: 0;
+    }
+
+    .searchform-close {
+        top: 1.2rem;
+    }
+}
+
+
+
+@media only screen and (max-width: $wmediumdevice) {
+    .theme-searchform {
+        right: auto;
+        left: 50%;
+        margin-left: ($search_form_width/2) * -1;
+        margin-top: 0;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+
+@media only screen and (max-width: ($search_form_width + 30)) {
+    .theme-searchform {
+        left: 0;
+        right: 0;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+.theme-searchlinks  {
+
+    font-size: $fssmall;
+    line-height: $fssmall_lh;
+    background-color: $accent1;
+    padding: .7rem 1.25rem;
+    color: #fff;
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        a {
+            color: #fff;
+            @include mb2_transition1(all, .15s);
+            display: block;
+
+            &:hover,
+            &:focus {
+                color: inherit;
+            }
+        }
+
+        li {
+            display: block;
+            margin: .4rem 0;
+
+            &.theme-static-item-first {
+                text-transform: uppercase;
+                font-weight: $fwheadings;
+                margin-bottom: .8rem;
+            }
+        }
+    }
+
+}
+
+
+#theme-coursesearchbox {
+    border: 0;
+    background-color: transparent;
+    font-weight: $fwheadings;
+    font-size: $fsheading4;
+    height: 2.4rem;
+    width: calc(100% - 2.5rem);
+    margin-bottom: 1rem;
+    vertical-align: top;
+    margin-left: .5rem;
+    color: $accent1 !important;
+
+    &::placeholder {
+        color: $accent1;
+        opacity: 1;
+    }
+}
+
+
+.theme-searchform {
+
+    form {
+        margin: 1rem 0 0 0;
+    }
+
+    @include mb2_input_autofill_bg(darken($color_gray4,6%), $textcolor);
+
+    &.noglobalsearch {
+        button[type="submit"] {
+            display: none;
+        }
+    }
+
+    &.isglobalsearch {
+        button[type="submit"] {
+            float: right;
+            @include mb2_border_radius(1.2rem);
+            width: 4rem;
+            height: 1.6rem;
+            padding: 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    }
+
+    .search-switch {
+        padding: .5rem 1.1rem;
+        background-color: rgba(0,0,0,.1);
+    }
+
+}
+
+
+#page-search-index {
+    .content-col {
+        .mform {
+            margin-bottom: 2rem;
+        }
+    }
+
+}

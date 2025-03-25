@@ -1,0 +1,35 @@
+
+.footer-tools {
+
+	margin: .3rem -.6rem 0 -.6rem;
+
+	> * {
+		display: inline-block;
+		margin: 0 .6rem;
+
+		&.helplink {
+			> a {
+				> i {
+					display: none;
+				}
+			}
+		}
+
+		> a {
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.logininfo {
+		display: block;
+	}
+
+	@media only screen and (max-width: $wmediumdevice){
+        text-align: center;
+    }
+
+}

@@ -1,0 +1,91 @@
+
+
+@mixin social_icon_variant($color)
+{
+	color: $color;
+	border-color: $color;
+
+	&:hover {
+		background-color: $color;
+		color: #fff;
+	}
+}
+
+
+.social-list {
+	margin: 0 -.35rem;
+	padding: 0;
+	list-style: none;
+
+	li {
+		display: inline-block;
+		margin: 0 .35rem;
+
+		$icon_size: 3rem;
+
+		a {
+			display: block;
+			width: $icon_size;
+			height: $icon_size;
+			line-height: $icon_size + .065;
+			text-align: center;
+			font-size: 1.2rem;
+			border: solid 1px rgba(0,0,0,.1);
+			@include mb2_border_radius(25rem);
+			@include mb2_transition1(all, .25s);
+		}
+
+		&.title-item {
+			color: $accent1;
+			font-weight: $fwbold;
+			margin-right: .4rem;
+			position: relative;
+			top: -.2rem;
+		}
+
+		&.li-android a {		@include social_icon_variant($color_android);	}
+		&.li-dribbble a {		@include social_icon_variant($color_dribbble);	}
+		&.li-dropbox a {		@include social_icon_variant($color_dropbox);	}
+		&.li-facebook a {		@include social_icon_variant($color_facebook);	}
+		&.li-flickr a {			@include social_icon_variant($color_flickr);	}
+		&.li-github a {			@include social_icon_variant($color_github);	}
+		&.li-google-plus a {	@include social_icon_variant($color_google);	}
+		&.li-instagram a {		@include social_icon_variant($color_instagram);	}
+		&.li-linkedin a {		@include social_icon_variant($color_linkedin); 	}
+		&.li-pinterest a {		@include social_icon_variant($color_pinterest);	}
+		&.li-rss a {			@include social_icon_variant($color_rss);		}
+		&.li-skype a {			@include social_icon_variant($color_skype);		}
+		&.li-tumblr a {			@include social_icon_variant($color_tumblr);	}
+		&.li-twitter a {		@include social_icon_variant($color_twitter);	}
+		&.li-vimeo a {			@include social_icon_variant($color_vimeo);		}
+		&.li-xing a {			@include social_icon_variant($color_xing);		}
+		&.li-youtube-play a {	@include social_icon_variant($color_youtube);	}
+		&.li-vk a {				@include social_icon_variant($color_vk);		}
+		&.li-whatsapp a {		@include social_icon_variant($color_whatsapp);	}
+		&.li-apple a {			@include social_icon_variant($color_apple);		}
+		&.li-envelope a {		@include social_icon_variant($color_email);		}
+		&.li-globe a {			@include social_icon_variant($color_web);		}
+		&.li-spotify a {		@include social_icon_variant($color_spotify);	}
+
+
+	}
+
+	#bottom-info & {
+		float: left;
+	}
+}
+
+
+@media only screen and (max-width: $wmediumdevice){
+	.social-list {
+		#bottom-info & {
+			float: none;
+		}
+
+		li {
+			&.title-item {
+				display: none;
+			}
+		}
+	}
+}

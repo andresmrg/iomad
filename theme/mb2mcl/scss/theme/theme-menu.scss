@@ -1,0 +1,202 @@
+
+
+.main-nav {
+
+    position: relative;
+    z-index: 3;
+    float: left;
+    margin-left: 1.2rem;
+    display: table;
+    height: 100%;
+
+    /* Core list style */
+
+    .main-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: table-row;
+
+        li {
+            position: relative;
+            display: block;
+
+            > a {
+                position: relative;
+                display: block;
+                @include mb2_transition1(all, .15s);
+            }
+
+            &.li-no-header {
+                display: none;
+            }
+
+            /* Parent menu arrows */
+
+            &.dropdown {
+                 > a {
+                    &:after {
+                        @include mb2_font_fa();
+                        content: '\f107';
+                        margin-left: .1rem;
+                        font-size: .8em;
+                    }
+                }
+
+                .dropdown {
+                    > a {
+
+                        &:after {
+                            position: absolute;
+    						right: 0;
+    						width: 1.4rem;
+    						text-align: center;
+    						height: 1.4rem;
+    						line-height: 1.4rem;
+    						top: 50%;
+    						margin-top: -.7rem;
+    						content: '\f105';
+                            margin-left: 0;
+                            margin-right: 0;
+                            font-size: 1.35em;
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        .dropdown-list {
+            list-style: none;
+            display: none;
+            margin: 0;
+            padding: 0;
+            line-height: $lhheadings;
+
+            /* Make dropdown list */
+
+            position: absolute;
+            width: $navddwidth;
+            z-index: 999;
+            top: 100%;
+            left: 0;
+            background-color: $color_gray4;
+            border-left: solid 2px $accent1;
+
+            .dropdown-list {
+                top: 0;
+                left: 100%;
+            }
+        }
+
+    }
+
+
+    /* Firs level menu items */
+
+    .main-menu > li {
+        display: table-cell;
+        vertical-align: middle;
+
+        > a {
+            @include mb2_font_family($ffmenu);
+            font-size: $fsmenu;
+            font-weight: $fwmenu;
+            color: $colormenu;
+            text-transform: $ttmenu;
+            padding: 0 .55rem;
+        }
+
+        &.active,
+        &:hover {
+            > a {
+                color: $colorhmenu;
+            }
+        }
+
+        .text {
+            display: none;
+        }
+
+        .menu-icon {
+            font-size: 1.5rem;
+            position: relative;
+            top: .2rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+
+    .header-color & {
+        .main-menu > li {
+
+            > a {
+                color: #fff;
+            }
+
+            &.active,
+            &:hover {
+                > a {
+                    color: $colorhmenu;
+                }
+            }
+        }
+    }
+
+
+    /* Next levels of menu */
+
+    .main-menu > li {
+
+        li {
+            > a {
+                @include mb2_font_family($ffddmenu);
+                color: $colorddmenu;
+                font-size: $fsddmenu;
+                font-weight: $fwddmenu;
+                text-transform: $ttddmenu;
+                padding: .6rem .75rem;
+            }
+
+            &:last-child {
+                > a {
+                    border-bottom: 0;
+                }
+            }
+
+            &.active,
+            &:hover {
+                > a {
+                    color: $colorddhmenu;
+                }
+            }
+        }
+    }
+
+}
+
+
+@media only screen and (max-width: $reswchangemenu ) {
+
+    .main-nav {
+        .main-menu {
+             > li {
+
+                > a {
+                    padding: 0 .4rem;
+                    font-size: $fssmall;
+                }
+
+            }
+        }
+    }
+
+}
+
+@media only screen and ( max-width: $reswhidemenu ) {
+    .main-nav {
+        display: none;
+    }
+}

@@ -1,0 +1,214 @@
+
+.header-tools {
+	float: right;
+	display: table;
+	height: 100%;
+
+	.header-tools-item {
+		position: relative;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.header-tools-btn {
+		color: $accent1 !important;
+		display: block;
+		margin-left: 1.1rem;
+		font-size: 1.5rem;
+
+		i {
+			position: relative;
+			top: .12rem;
+		}
+
+		&.language-btn {
+			> span {
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				top: -.14rem;
+				font-size: $fsmenu;
+	            font-weight: $fwmenu;
+	            color: $accent1;
+	            text-transform: $ttmenu;
+				margin-right: .23rem;
+			}
+		}
+	}
+
+	.header-color & {
+		.header-tools-btn {
+			color: #fff !important;
+
+			&.language-btn {
+				> span {
+		            color: #fff;
+				}
+			}
+		}
+	}
+
+	.tool-buttons {
+		.link-replace {
+			margin-left: 1.1rem;
+		}
+	}
+
+}
+
+
+
+/* Button to show header tools on smaller screens */
+
+.tools-show {
+
+	display: none;
+	position: relative;
+	height: 100%;
+	float: right;
+
+	a {
+		display: inline-block;
+		position: relative;
+		font-size: 1.6rem;
+		color: $accent1 !important;
+		line-height: 1;
+		top: .2rem;
+	}
+
+
+	.header-color & {
+		a {
+			color: #fff !important;
+		}
+	}
+
+}
+
+.tools-show-inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+/* Button to close header tolls on smaller screens */
+
+
+.tools-close {
+	display: none;
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	text-align: center;
+	line-height: 2rem;
+	top: 50%;
+	right: .5rem;
+	margin-top: -1rem;
+	font-size: 1.35rem;
+	color: $accent1 !important;
+
+
+	.header-color & {
+		color: #fff !important;
+	}
+}
+
+
+
+
+@media only screen and (max-width: $reswheadertools1) {
+
+	.header-tools {
+		opacity: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background-color: #fff;
+		border-left: solid 3px $accent1;
+		padding-right: 3rem;
+
+		&.open {
+			opacity: 1;
+			z-index: 3;
+		}
+
+		.header-color & {
+			background-color: darken( $accent1, 5% );
+			border-color: rgba(255,255,255,.15);
+		}
+
+	}
+
+	.tools-show {
+		display: table;
+	}
+
+	.tools-close {
+		display: block;
+	}
+
+
+}
+
+
+
+
+@media only screen and (max-width: $wmediumdevice) {
+
+	.header-tools {
+
+		.header-tools-item {
+			position: static;
+		}
+
+	}
+
+}
+
+
+
+
+
+@media only screen and (max-width: $reswheadertools2) {
+
+	.header-tools {
+		display: block;
+		opacity: 1;
+		height: auto;
+		width: 100%;
+		text-align: center;
+		position: relative;
+		float: none;
+		clear: both;
+		margin: 0 auto;
+		border-left: 0;
+		padding-right: 0;
+		background-color: transparent;
+
+		.header-tools-item {
+			display: inline-block;
+			text-align: initial;
+
+			&.tool-language,
+			&.tool-buttons {
+				display: none;
+			}
+		}
+
+		&:before {
+			content: '';
+			display: block;
+		    clear: both;
+		}
+
+
+	}
+
+	.tools-show,
+	.tools-close {
+		display: none;
+	}
+
+
+}

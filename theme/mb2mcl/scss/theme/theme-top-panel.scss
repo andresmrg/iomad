@@ -1,0 +1,198 @@
+
+#top-panel {
+	background-color: lighten($color_gray2, 3.5%);
+	padding-top: .22rem;
+	padding-bottom: .22rem;
+	font-size: $fssmall;
+	@include mb2_overlay_div(rgba(0,0,0,.07));
+
+
+	.social-list {
+		float: right;
+		margin-left: -.2rem;
+		margin-left: -.2rem;
+		padding-left: .8rem;
+		margin: .23rem 0;
+
+		li {
+			margin-left: .2rem;
+			margin-right: .2rem;
+
+			a {
+				width: 1.7rem;
+				height: 1.7rem;
+				line-height: 1.7rem;
+				font-size: .9rem;
+			}
+		}
+	}
+
+
+
+	.header-color & {
+		background-color: $accent2;
+		color: #fff;
+
+		a {
+			color: #fff;
+
+			&:hover,
+			&:focus {
+				color: inherit;
+			}
+		}
+
+		.social-list {
+			li {
+				a {
+					border-color: #fff;
+					color: #fff;
+
+					&:hover,
+					&:focus {
+						background-color: rgba(0,0,0,.1);
+					}
+
+				}
+			}
+		}
+	}
+
+
+}
+
+
+.top-info-content {
+	float: left;
+	margin-top: .28rem;
+
+	.theme-static-content {
+		margin: 0 -.4rem;
+		padding: 0;
+		list-style: none;
+
+		li {
+			display: inline-block;
+			margin: 0 .4rem;
+
+			a {
+				@include mb2_transition1(all, .15s);
+
+				color: inherit;
+
+		        &:hover,
+		        &:focus {
+		            color: $linkcolor;
+		        }
+			}
+
+		}
+
+
+		.static-icon {
+            margin-right: .35rem;
+		    line-height: 1;
+		    vertical-align: middle;
+		    font-size: 1.1rem;
+		    color: $accent2;
+        }
+	}
+
+
+	.header-color & {
+		.theme-static-content {
+			.static-icon {
+				color: #fff;
+			}
+		}
+	}
+
+}
+
+
+.theme-usertools {
+	float: right;
+	margin-top: .34rem;
+
+	.fs2 {
+		font-size: 1.1rem;
+	}
+
+	.fs3 {
+		font-size: 1.25rem;
+	}
+
+	.theme-fontsizer {
+		a {
+			padding: 0 .2rem;
+			line-height: 1px;
+			@include mb2_transition1(all, .15s);
+		}
+	}
+
+	.theme-fs1 & {
+		.fs1 {
+			color: $textcolor_lighten !important;
+		}
+	}
+
+	.theme-fs2 & {
+		.fs2 {
+			color: $textcolor_lighten !important;
+		}
+	}
+
+	.theme-fs3 & {
+		.fs3 {
+			color: $textcolor_lighten !important;
+		}
+	}
+
+
+	.header-color & {
+
+		.theme-fs1 & {
+			.fs1 {
+				color: rgba(255,255,255,.5) !important;
+			}
+		}
+
+		.theme-fs2 & {
+			.fs2 {
+				color: rgba(255,255,255,.5) !important;
+			}
+		}
+
+		.theme-fs3 & {
+			.fs3 {
+				color: rgba(255,255,255,.5) !important;
+			}
+		}
+
+	}
+
+
+}
+
+
+@media only screen and (max-width:768px){
+
+	#top-panel {
+		text-align: center;
+
+		.social-list {
+			float: none;
+			padding-left: 0;
+		}
+	}
+
+	.theme-usertools {
+		float: none;
+	}
+
+	.top-info-content {
+		float: none;
+		margin-bottom: .6rem;
+	}
+
+}

@@ -1,0 +1,58 @@
+.iomadlink_container {
+
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+
+	.iomadlink {
+		font-size: $fssmall;
+	    line-height: 1.4;
+	    margin: 0 !important;
+
+		.iomadicon {
+		    margin: 0;
+
+			img {
+				max-width: 28px;
+			}
+
+
+			&.report {
+				img {
+					max-width: 48px;
+				}
+			}
+
+		}
+
+	}
+
+	.iomadlink,
+	.iomadlinkreports {
+		.iomadicon {
+			.fa-action {
+				font-size: 14px;
+			    width: 28px;
+			    height: 28px;
+			    line-height: 28px;
+			}
+		}
+	}
+
+	> a {
+	    display: inline-block;
+	    float: none;
+	    min-height: 0;
+		vertical-align: top;
+	    margin: .2rem .1rem;
+	    background-color: rgba(0,0,0,.05);
+	    border-radius: .15rem;
+	    padding: .28rem;
+	    overflow: hidden;
+		color: inherit;
+	}
+
+
+
+}

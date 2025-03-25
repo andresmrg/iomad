@@ -1,0 +1,226 @@
+
+@mixin mb2_nobtn()
+{
+    padding: 0;
+    border: 0;
+    background-color: transparent !important;
+    font-weight: inherit;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+@mixin mb2_btn_link()
+{
+    background-color: transparent !important;
+    color: inherit !important;
+    padding: 0 .3rem;
+    font-weight: inherit;
+    border: 0 !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -ms-box-shadow: none !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $linkcolor !important;
+    }
+
+}
+
+
+
+@mixin mb2_btn_icon($padding_h, $padding_v, $icon_w, $radius)
+{
+    padding: 0 $padding_h;
+
+    .btn-icon {
+        position: relative;
+        left: $padding_h * -1;
+        display: inline-block;
+        width: $icon_w;
+        padding: $padding_v 0;
+        background-color: rgba(0, 0, 0, .21);
+        @include mb2_border_radius($radius 0 0 $radius);
+    }
+
+    .btn-text {
+        display: inline-block;
+    }
+
+    &.btn-full {
+
+        .btn-icon {
+            float: left;
+        }
+
+        .btn-text {
+            display: inline-block;
+            padding: $padding_v 0;
+            position: relative;
+            left: ($icon_w/2) * -1;
+        }
+    }
+
+    &.btn-border {
+        .btn-icon {
+            background-color: transparent;
+            border-right: solid 1px $btncolor;
+        }
+    }
+
+    &.btn-rounded {
+        .btn-icon {
+            @include mb2_border_radius(2.5rem 0 0 2.5rem);
+        }
+    }
+}
+
+
+@mixin mb2_btn_xs($pver: .22rem, $phor: .4rem, $fs: $fsxsmall, $lh: $fsxsmall_lh, $radius: .15rem )
+{
+     @include button-size($pver, $phor, $fs, $lh, $radius);
+
+     &.isicon {
+         @include mb2_btn_icon($phor, $pver, 1.6rem, $radius);
+     }
+}
+
+
+@mixin mb2_btn_sm($pver: .27rem, $phor: .6rem, $fs: $fssmall, $lh: $fssmall_lh, $radius: .2rem )
+{
+     @include button-size($pver, $phor, $fs, $lh, $radius);
+
+     &.isicon {
+         @include mb2_btn_icon($phor, $pver, 1.8rem, $radius);
+     }
+}
+
+
+@mixin mb2_btn_lg($pver: .88rem, $phor: 2rem, $fs: 1.17rem, $lh: $fsbig_lh, $radius: .22rem )
+{
+     @include button-size($pver, $phor, $fs, $lh, $radius);
+
+     &.isicon {
+         @include mb2_btn_icon($phor, $pver, 3.4rem, $radius);
+     }
+}
+
+
+@mixin mb2_btn_border($color)
+{
+
+    background-color: transparent;
+    border-width: 1px;
+    color: $color !important;
+
+    .btn-icon {
+        background-color: transparent;
+        border-color: $color !important;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $color;
+        border-color: $color !important;
+        color: #fff !important;
+
+        .btn-icon {
+            background-color: rgba(0,0,0,.21) !important;
+            border-color: transparent !important;
+        }
+    }
+
+}
+
+
+
+@mixin mb2_btn($color: $btncolor)
+{
+
+    $btn_padding_ver: .37rem;
+    $btn_padding_hor: 1.28rem;
+    $btn_radius: .2rem;
+    //@include mb2_transition1(all, .15s);
+    transition: color 0.15s ease-in-out,background-color 0.15s ease-in-out,border-color 0.15s ease-in-out,box-shadow 0 ease-in-out;
+    @include button-variant($color, darken($color,5%));
+    @include button-size($btn_padding_ver, $btn_padding_hor, $fsgeneral, $lhgeneral, $btn_radius);
+    display: inline-block;
+    border-width: 0;
+    border-style: solid;
+    cursor: pointer;
+    font-weight: $btnfw;
+    text-decoration: none !important;
+    outline: .2rem solid transparent;
+
+    @include mb2_box_shadow_none();
+
+    &:focus {
+        color: #fff;
+        outline: .2rem solid transparent;
+    }
+
+    &.btn-full,
+    &.btn-fw {
+        width: 100%;
+    }
+
+    .btn-group & {
+        border-width: 1px;
+    }
+
+    &.isicon {
+        @include mb2_btn_icon($btn_padding_hor, $btn_padding_ver, 2.2rem, $btn_radius);
+    }
+
+    /* Bordered rounded */
+
+	&.btn-rounded {
+		@include mb2_border_radius(2.5rem);
+	}
+
+}
+
+
+
+@mixin mb2_btn_moodle_icon()
+{
+
+    @include mb2_box_shadow_none();
+    @include mb2_transition_none();
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0 !important;
+    color: $headingscolor !important;
+
+    span {
+        padding: 0 !important;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $headingscolor !important;
+        background-color: rgba(0,0,0,.04) !important;
+    }
+
+    &.mr-1 {
+        margin-right: 1rem !important;
+    }
+
+    &.icons-collapse-expand {
+        background-color: rgba(0,0,0,.04) !important;
+
+        &:hover {
+            outline-color: rgba(0,0,0,.1);
+            outline-width: 1px;
+        }
+    }
+
+
+}

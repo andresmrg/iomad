@@ -1,0 +1,63 @@
+
+
+.pagelayout-maintenance,
+.pagelayout-popup {
+    background-image : none !important;
+    background-color: $color_gray2;
+
+    #page-outer {
+        background-image : none;
+        background-color: transparent;
+    }
+
+
+    #main-header {
+		h1 {
+			margin: 0;
+			font-size: $fsheading3;
+		}
+
+		position: relative;
+		padding: 1rem 0;
+
+		&:after {
+			display: block;
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: -8px;
+			width: 100%;
+			height: 8px;
+            z-index: 1;
+			background-color: orange;
+			background-image: url([[pix:theme|svg/strip1_black20]]);
+		}
+	}
+
+    &.header-color {
+        #main-header {
+            background-color: transparent;
+        }
+    }
+
+
+    .theme-scrolltt {
+        display: none;
+    }
+
+    #footer {
+        background-color: $color_gray2;
+        color: $textcolor;
+        margin-top: 3rem;
+
+        a {
+
+            color: $linkcolor;
+
+            &:hover,
+            &:focus {
+                color: $linkhcolor;
+            }
+        }
+    }
+}
