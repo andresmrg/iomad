@@ -794,7 +794,7 @@ function theme_mb2mcl_string_url_safe($string)
 function theme_mb2mcl_logo_url($page, $customLogo = '', $login = true)
 {
 
-    global $OUTPUT, $CFG;
+    global $OUTPUT, $CFG, $DB;
     $moodle33 = 2017051500;
 
     // Url to default logo image
@@ -815,6 +815,25 @@ function theme_mb2mcl_logo_url($page, $customLogo = '', $login = true)
 
     $logoUrl = $isCustomLogo !='' ? $isCustomLogo : $defaultLogo;
 
+    /**
+     * Customization lmsdoctor.
+     * Display logo based on the company selected.
+     *
+     * @author LMS Doctor <support@lmsdoctor.com>
+     * @since  03.12.2025
+     */
+    if ($companyid = iomad::get_my_companyid(context_system::instance(), false)) {
+        if ($companyid != '-1') {
+            $company = new company($companyid);
+            $logoUrl = company::get_logo_url($companyid, null, 75);
+        } else {
+            $companycode = optional_param('code', 1, PARAM_TEXT);
+            $companyid = $DB->get_field('company', 'id', ['code' => $companycode]);
+            $company = new company($companyid);
+            $logoUrl = company::get_logo_url($companyid, null, 200);
+        }
+    }
+
     return $logoUrl;
 
 }
@@ -831,7 +850,7 @@ function theme_mb2mcl_logo_url($page, $customLogo = '', $login = true)
 function theme_mb2mcl_pagebg_image($page)
 {
 
-    global $OUTPUT, $CFG;
+    global $OUTPUT, $CFG, $DB;
     $moodle33 = 2017051500;
     $pageBgUrl = '';
 
@@ -867,8 +886,24 @@ function theme_mb2mcl_pagebg_image($page)
         $pageBgUrl = $pageBgDef;
     }
 
-    return $pageBgUrl !='' ? ' style="background-image:url(\'' . $pageBgUrl . '\');"' : '';
+    /**
+     * Customization lmsdoctor.
+     * Display logo based on the company selected.
+     *
+     * @author LMS Doctor <support@lmsdoctor.com>
+     * @since  03.12.2025
+     */
+    if ($companyid = iomad::get_my_companyid(context_system::instance(), false)) {
+        if ($companyid == '-1') {
+            $companycode = optional_param('code', 1, PARAM_TEXT);
+            $companyid = $DB->get_field('company', 'id', ['code' => $companycode]);
+            $company = new company($companyid);
+            $pageBgUrl = company::get_login_background_url($companyid);
 
+        }
+    }
+
+    return $pageBgUrl !='' ? ' style="background-image:url(\'' . $pageBgUrl . '\');"' : '';
 
 }
 
@@ -2025,10 +2060,10 @@ function theme_mb2mcl_user_preference($name, $def = '', $type = PARAM_TEXT)
     {
         // Get cookie
         if ( isset( $_COOKIE[$name] ) )
-        {			
+        {
             return clean_param( $_COOKIE[$name], $type );
         }
-        
+
         return;
     }
 
@@ -2045,9 +2080,9 @@ function theme_mb2mcl_user_preference($name, $def = '', $type = PARAM_TEXT)
 function theme_mb2mcl_user_preferences(){
 
     $pref = array();
-    
+
     return $pref;
-    
+
 }
 
 

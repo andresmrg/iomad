@@ -161,6 +161,7 @@ if (!$new) {
                                       'compayfavicon',
                                       'companylogo',
                                       'companylogocompact',
+                                      'loginbackground',
                                       'currentparentid',
                                       'customcss',
                                       'headingcolor',
@@ -233,6 +234,27 @@ file_prepare_draft_area($draftcompanylogocompactid,
                         'logocompact' . $companyid, 0,
                         ['maxfiles' => 1]);
 $companyrecord->companylogocompact = $draftcompanylogocompactid;
+
+/**
+ * Login background.
+ *
+ * @author LMS Doctor <support@lmsdoctor.com>
+ * @since  03.11.2025
+ */
+
+// Get the login background image.
+$draftloginbackgroundlogoid = file_get_submitted_draft_itemid('loginbackground');
+
+file_prepare_draft_area(
+    $draftloginbackgroundlogoid,
+    $systemcontext->id,
+    'theme_iomad',
+    'loginbackground',
+    $companyid,
+    array('subdirs' => 0, 'maxbytes' => 6000 * 4000, 'maxfiles' => 1)
+);
+$companyrecord->loginbackground = $draftloginbackgroundlogoid;
+
 
 $draftcompanyfaviconid = file_get_submitted_draft_itemid('companyfavicon');
 file_prepare_draft_area($draftcompanyfaviconid,
@@ -331,6 +353,17 @@ if (!empty($new) && !empty($parentid)) {
                             'logocompact' . $parentid, 0,
                             ['maxfiles' => 1]);
     $companyrecord->companylogocompact = $draftcompanylogocompactid;
+
+    $draftloginbackgroundid = file_get_submitted_draft_itemid('loginbackground');
+    file_prepare_draft_area(
+        $draftloginbackgroundid,
+        $systemcontext->id,
+        'theme_iomad',
+        'loginbackground',
+        $parentid,
+        array('subdirs' => 0, 'maxbytes' => 6000 * 4000, 'maxfiles' => 1)
+    );
+    $companyrecord->loginbackground = $draftloginbackgroundid;
 
     $draftcompanyfaviconid = file_get_submitted_draft_itemid('companyfavicon');
     file_prepare_draft_area($draftcompanyfaviconid,
@@ -461,7 +494,7 @@ if ($mform->is_cancelled()) {
             $catdata->sortorder = $DB->count_records('user_info_category') + 1;
             $catdata->name = $data->shortname;
             $data->profileid = $DB->insert_record('user_info_category', $catdata);
-    
+
             // Deal with leading/trailing spaces
             $data->name = trim($data->name);
             $data->shortname = trim($data->shortname);
@@ -471,7 +504,7 @@ if ($mform->is_cancelled()) {
             $data->custom1 = trim($data->custom1);
             $data->custom2 = trim($data->custom2);
             $data->custom3 = trim($data->custom3);
-    
+
             // We hit create.
             $companyid = $DB->insert_record('company', $data);
             $company = new company($companyid);
@@ -789,6 +822,23 @@ if ($mform->is_cancelled()) {
                                        'companycertificatewatermark',
                                        $data->id,
                                        array('subdirs' => 0, 'maxbytes' => 150 * 1024, 'maxfiles' => 1));
+        }
+
+        /**
+         * Login background.
+         *
+         * @author LMS Doctor <support@lmsdoctor.com>
+         * @since  03.11.2025
+         */
+        if (!empty($data->loginbackground)) {
+            file_save_draft_area_files(
+                $data->loginbackground,
+                $systemcontext->id,
+                'theme_iomad',
+                'loginbackground',
+                $data->id,
+                array('subdirs' => 0, 'maxbytes' => 6000 * 4000, 'maxfiles' => 1)
+            );
         }
         // Delete any recorded domains for this company.
         $DB->delete_records('company_domains', array('companyid' => $companyid));

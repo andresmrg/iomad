@@ -256,8 +256,8 @@ class company {
      * @return string
      *
      */
-    public static function get_logo_url($companyid, $maxwidth = null, $maxheight = 200) {
-        
+    public static function get_logo_url($companyid, $maxwidth = null, $maxheight = null) {
+
         // Get the company logo config settings.
         $logo = get_config('core_admin', 'logo'.$companyid);
         if (!empty($logo)) {
@@ -288,6 +288,39 @@ class company {
             return moodle_url::make_pluginfile_url(context_system::instance()->id, 'core_admin', 'logo', $filepath,
                 theme_get_revision(), $logo);
         }
+    }
+
+    /**
+     * Gets the file path for the company logo for the current instance
+     *
+     * @return string
+     *
+     */
+    public static function get_login_background_url($companyid) {
+
+        // Retrieve the stored file
+        $fs = get_file_storage();
+        $files = $fs->get_area_files(context_system::instance()->id, 'theme_iomad', 'loginbackground', $companyid,
+            'itemid, filepath, filearea, filename', false);
+
+        // Generate the file URL
+        foreach ($files as $file) {
+
+            if ($file->is_valid_image()) {
+                // Get the file URL
+                $imageurl = moodle_url::make_pluginfile_url(
+                    $file->get_contextid(),
+                    'theme_iomad',
+                    'loginbackground',
+                    $companyid,
+                    $file->get_filepath(),
+                    $file->get_filename()
+                );
+
+                return $imageurl->out();
+            }
+        }
+
     }
 
     /**
@@ -671,7 +704,7 @@ class company {
             foreach ($langstrings as $langstring) {
                 $langstring->templateid = $templateid;
                 unset($langstring->templatesetid);
-                $DB->instert_record('email_template_strings', $langstring); 
+                $DB->instert_record('email_template_strings', $langstring);
             }
         }
 
@@ -1332,7 +1365,7 @@ class company {
                 $assign['educator'] = 1;
             } else {
                 $assign['educator'] = $educator;
-            }   
+            }
 
             // Add the user to the new department.
             $success = $DB->insert_record('company_users',
@@ -1434,7 +1467,7 @@ class company {
                             }
                         }
                     }
-                }   
+                }
 
                 $companycount = $DB->count_records_select('company_users', "userid = :userid AND (managertype = 1 OR managertype = 2)",
                                                         array('userid' => $userid));
@@ -1461,7 +1494,7 @@ class company {
                                                 $companycoursenoneditorrole->id);
                         }
                     }
-                }   
+                }
 
                 // Make sure all department records in the company match this.
                 $DB->set_field('company_users', 'managertype', 2, ['companyid' => $companyid, 'userid' => $userid]);
@@ -1488,10 +1521,10 @@ class company {
             $s = [];
             if($user->departmentid != $departmentid) {
                 $s['departmentid'] = $departmentid;
-            }   
+            }
             if($user->managertype != $managertype && $managertype != 3) {
                 $s['managertype'] = $managertype;
-            }   
+            }
             if (($managertype == 1 || $managertype == 2) && $CFG->iomad_autoenrol_managers) {
                 $s['educator'] = 1;
             } else if ($CFG->iomad_autoenrol_managers) {
@@ -1500,7 +1533,7 @@ class company {
                 $s['educator'] = $educator;
             } else {
                 $s['educator'] = $educator;
-            }   
+            }
 
             // Deal with any management role changes.
             if ($managertype != 0) {
@@ -1532,7 +1565,7 @@ class company {
                                 }
                             }
                         }
-                    }   
+                    }
 
                     if ($user->managertype == 0) {
                         $companycount = $DB->count_records_select('company_users', "userid = :userid AND (managertype = 1 OR managertype = 2)",
@@ -1567,7 +1600,7 @@ class company {
                         EmailTemplate::send('user_promoted',
                                        array('company' => $company,
                                              'user' => $userrec));
-                    }   
+                    }
                 } else if ($managertype == 3 && !$CFG->iomad_autoenrol_managers) {
                     // Deal with company course roles.
                     if ($CFG->iomad_autoenrol_managers && !empty($companycourses)) {
@@ -1615,7 +1648,7 @@ class company {
                         $childdepartment = self::get_company_parentnode($childcompany->id);
                         self::upsert_company_user($userid,$childcompany->id,$childdepartment->id,$managertype, $educator);
                     }
-                }   
+                }
             }
             if (($user->managertype == 1 ||
                  $user->managertype == 2 ||
@@ -1658,7 +1691,7 @@ class company {
                     role_unassign($companymanagerrole->id, $userid, $companycontext->id);
                     role_unassign($departmentmanagerrole->id, $userid, $companycontext->id);
                     role_unassign($companyreporterrole->id, $userid, $companycontext->id);
-                }   
+                }
                 if ($user->managertype == 1) {
                     // Deal with child companies.
                     $childcompanies = $company->get_child_companies_recursive();
@@ -1668,7 +1701,7 @@ class company {
                         self::upsert_company_user($userid,$childcompany->id, $childdepartment->id, $managertype, $educator);
                         $DB->delete_records('company_users', array('companyid' => $childcompany->id, 'userid' => $userid));
                     }
-                }   
+                }
 
                 if ($user->managertype == 1 || $user->managertype == 2) {
                     $companycount = $DB->count_records_select('company_users', "userid = :userid AND (managertype = 1 OR managertype = 2)",
@@ -1706,7 +1739,7 @@ class company {
                         }
                     }
                 }
-            }   
+            }
 
             if (!$educator && $user->educator == 1 &&
                  !$CFG->iomad_autoenrol_managers &&
@@ -1718,7 +1751,7 @@ class company {
                                                     $companycourse->companyid);
                     }
                 }
-            }   
+            }
 
             // Are we updating the user record?
             if(count($s)) {
@@ -1798,7 +1831,7 @@ class company {
         if ($reusablelicenses = $DB->get_records_sql("SELECT clu.*
                                                       FROM {companylicense_users} clu
                                                       JOIN {companylicense} cl ON (clu.licenseid = cl.id)
-                                                      WHERE cl.companyid = :companyid 
+                                                      WHERE cl.companyid = :companyid
                                                       AND (cl.type = 1 OR cl.type = 3)
                                                       AND cl.expirydate > :timestamp
                                                       AND clu.userid = :userid",
@@ -2385,7 +2418,7 @@ class company {
                 foreach ($childcompanies as $childcompany) {
                     $childnode = self::get_company_parentnode($childcompany->id);
                     $departmenttree->children[] = self::get_subdepartments($childnode, $ignorecurrentbranch);
-                    
+
                 }
             }
         }
@@ -2478,7 +2511,7 @@ class company {
                     $childtree = self::get_subdepartments($childnode);
                     $childlist[$childnode->id] = format_string($childnode->name, true, $options);
                     $departmenttree->children[] = $childtree;
-                    
+
                 }
             }
         }
@@ -2538,7 +2571,7 @@ class company {
             }
         }
         $users = array();
-        foreach ($departmentids as $departmentid) { 
+        foreach ($departmentids as $departmentid) {
             $users = $users + self::get_recursive_department_users($departmentid);
         }
         return $users;
@@ -3763,7 +3796,7 @@ class company {
                         return true;
                     }
                 }
-            } 
+            }
             return false;
         }
         // Shouldn't get here.  Return a false in case.
@@ -4654,7 +4687,7 @@ class company {
 
         // Get all of the companies the user is tied to
         $usercompanies = $DB->get_records_sql("SELECT DISTINCT c.*
-                                               FROM {company} c 
+                                               FROM {company} c
                                                JOIN {company_users} cu ON (c.id = cu.companyid)
                                                WHERE cu.userid = :userid",
                                                array('userid' => $userid));
@@ -5097,7 +5130,7 @@ class company {
 
                             // Then re-enrol them.
                             $enrol->enrol_user($instance, $user->id, $instance->roleid, $timestart, $timeend);
-                        } 
+                        }
                     } else {
                         // Educator role.
                         if ($DB->get_record('iomad_courses', array('courseid' => $course->id, 'shared' => 0))) {

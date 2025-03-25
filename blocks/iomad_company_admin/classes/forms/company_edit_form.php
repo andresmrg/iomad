@@ -152,7 +152,7 @@ class company_edit_form extends \company_moodleform {
 
         /* === Company email notifications === */
         $mform->addElement('header', 'manageremails', get_string('manageremails', 'block_iomad_company_admin'));
-        $mform->setExpanded('manageremails', false);         
+        $mform->setExpanded('manageremails', false);
 
         $emailchoices = array('0' => get_string('none'),
                               '1' => get_string('reminderemails', 'block_iomad_company_admin'),
@@ -330,19 +330,19 @@ class company_edit_form extends \company_moodleform {
         if (!empty($this->companyid)) {
             // Get the company profile choices.
             $globalmenufields = $DB->get_records_sql_menu("SELECT id,name from {user_info_field} WHERE
-                                                           datatype = :datatype                                                       
+                                                           datatype = :datatype
                                                            AND categoryid NOT IN (
                                                            SELECT profileid from {company}
                                                            )",
                                                            ['datatype' => 'menu']);
             $companymenufields = $DB->get_records_sql_menu("SELECT id,name from {user_info_field} WHERE
-                                                            datatype = :datatype                                                       
+                                                            datatype = :datatype
                                                             AND categoryid = (
                                                               SELECT profileid from {company}
                                                               WHERE id = :companyid
                                                             )",
                                                             ['companyid' => $this->companyid, 'datatype' => 'menu']);
-    
+
             $allmenufields = array_merge(['0' => get_string('none')], $companymenufields, $globalmenufields);
             $mform->addElement('select', 'departmentprofileid', get_string('departmentprofileid', 'block_iomad_company_admin'), $allmenufields, ['optional' => true]);
             $mform->addHelpButton('departmentprofileid', 'departmentprofileid', 'block_iomad_company_admin');
@@ -420,6 +420,7 @@ class company_edit_form extends \company_moodleform {
         try {
             $theme = \theme_config::load($companytheme);
             if (preg_match('/iomad/', $companytheme) ||
+                preg_match('/mb2mcl/', $companytheme) ||
                 !empty($theme->isiomadtheme)) {
                 $isiomadtheme = true;
             }
@@ -496,6 +497,19 @@ class company_edit_form extends \company_moodleform {
                                     get_string('companyfavicon', 'block_iomad_company_admin'), null,
                                     ['maxfiles' => 1,
                                      'accepted_types' => ['image']]);
+
+                 /**
+                 * Custom field for loginbgimage, this can be read by the theme.
+                 *
+                 * @author LMS Doctor <support@lmsdoctor.com>
+                 * @since  03.11.2025
+                 */
+                $mform->addElement('filemanager', 'loginbackground',
+                                    'Login Background Image', null,
+                                    ['subdirs' => 0,
+                                     'maxbytes' => 6000 * 4000,
+                                     'maxfiles' => 1,
+                                     'accepted_types' => array('*.jpg', '*.gif', '*.png')]);
 
                 $mform->addElement('textarea', 'customcss',
                                     get_string('customcss', 'block_iomad_company_admin'),
@@ -826,7 +840,7 @@ class company_edit_form extends \company_moodleform {
                                                   $foundcompanynamestring);
             }
         }
-        
+
         if (!empty($data['code']) &&
             $foundcompanies = $DB->get_records('company', array('code' => $data['code']))) {
             if (!empty($this->companyid)) {
