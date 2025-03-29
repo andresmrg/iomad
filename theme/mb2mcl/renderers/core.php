@@ -56,7 +56,7 @@ class theme_mb2mcl_core_renderer extends \theme_boost\output\core_renderer
     public function navbar(): string {
 		return $this->render_from_template('core/navbar', $this->page->navbar);
     }
-	
+
 
 	/**
      * The standard tags that should be included in the <head> tag
@@ -67,7 +67,7 @@ class theme_mb2mcl_core_renderer extends \theme_boost\output\core_renderer
     public function standard_head_html()
 	{
 
-		global $SITE, $PAGE, $CFG;
+		global $SITE, $PAGE, $CFG, $DB;
 
         $output = parent::standard_head_html();
 
@@ -84,6 +84,61 @@ class theme_mb2mcl_core_renderer extends \theme_boost\output\core_renderer
             if (!empty($summary)) {
                 $output .= "<meta name=\"description\" content=\"$summary\" />\n";
             }
+        }
+
+        // Inject additional 'live' css
+        $css = '';
+
+        // Get company colours
+        $companyid = \iomad::get_my_companyid(\context_system::instance(), false);
+        if ($companyrec = $DB->get_record('company', array('id' => $companyid))) {
+            $company = $DB->get_record('company', array('id' => $companyid), '*', MUST_EXIST);
+            $linkcolor = $company->linkcolor;
+            if ($linkcolor) {
+                $css .= 'a {color: ' . $linkcolor . '} ';
+            }
+            $headingcolor = $company->headingcolor;
+            if ($headingcolor) {
+                $css .= '#main-header .main-header-inner {background-color: ' . $headingcolor . '!important} ';
+            }
+            $maincolor = $company->maincolor;
+            if ($maincolor) {
+                $css .= 'body,
+                        .btn-primary,
+                        .btn-secondary,
+                        [type="submit"],
+                        li.item-coursepanel a,
+                        li.item-dashboard a,
+                        li.item-frontpage a,
+                        li.item-calendar a,
+                        li.item-badges a,
+                        li.item-courses a,
+                        li.item-turneditingcourse a,
+                        li.item-managecoursesandcats a {
+                            background-color: ' . $maincolor . '!important
+                        }
+                        .btn-primary:hover, .btn-secondary:hover,
+                        [type="submit"]:hover,
+                        li.item-coursepanel a:hover,
+                        li.item-dashboard a:hover,
+                        li.item-frontpage a:hover,
+                        li.item-calendar a:hover,
+                        li.item-badges a:hover,
+                        li.item-courses a:hover,
+                        li.item-turneditingcourse a:hover,
+                        li.item-managecoursesandcats a:hover {
+                          background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+                        }
+                        ';
+            }
+
+            $css .= $company->customcss;
+        }
+
+        $output = parent::standard_head_html();
+
+        if ($css) {
+            $output .= '<style>' . $css . '</style>';
         }
 
         return $output;

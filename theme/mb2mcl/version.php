@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2025010620;
+$plugin->version   = 2025010621;
 $plugin->requires  = 2014051200;
 $plugin->component = 'theme_mb2mcl';
 $plugin->release   = '2.0.0 (Moodle 4.0 - 4.5+)';
